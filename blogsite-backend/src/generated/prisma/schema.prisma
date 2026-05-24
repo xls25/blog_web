@@ -1,0 +1,80 @@
+generator client {
+  provider     = "prisma-client-js"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model actions {
+  id         BigInt   @id @default(autoincrement())
+  user_id    BigInt
+  content    String
+  created_at DateTime @db.Timestamp(6)
+  expires_at DateTime @db.Timestamp(6)
+  score      BigInt   @default(0)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_actions_userid")
+}
+
+model chat_members {
+  chat_id BigInt @default(autoincrement())
+  user_Id BigInt @default(autoincrement())
+  chats   chats  @relation(fields: [chat_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_chatmembers_chatid")
+  users   users  @relation(fields: [user_Id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_chatmembers_userid")
+
+  @@id([chat_id, user_Id])
+}
+
+model chats {
+  id           BigInt         @id @default(autoincrement())
+  created_at   DateTime       @db.Timestamp(6)
+  updated_at   DateTime       @db.Timestamp(6)
+  chat_members chat_members[]
+  messages     messages[]
+}
+
+model highlights {
+  id         BigInt   @id @default(autoincrement())
+  created_at DateTime @db.Timestamp(6)
+  content    String
+  user_id    BigInt
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_highlights_userid")
+}
+
+model messages {
+  id         BigInt   @id @default(autoincrement())
+  chat_id    BigInt
+  sender_id  BigInt
+  content    String
+  created_at DateTime @db.Timestamp(6)
+  is_read    Boolean  @default(false)
+  chats      chats    @relation(fields: [chat_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_messages_chatid")
+  users      users    @relation(fields: [sender_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_messages_userid")
+}
+
+model stories {
+  id         BigInt   @id @default(autoincrement())
+  user_id    BigInt
+  created_at DateTime @db.Timestamp(6)
+  content    String
+  expires_at DateTime @db.Timestamp(6)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_stories_userid")
+}
+
+model users {
+  id             BigInt         @id @default(autoincrement())
+  username       String         @db.VarChar(20)
+  birth_date     DateTime       @db.Date
+  password       String         @db.VarChar(255)
+  is_admin       Boolean        @default(false)
+  description    String?        @db.VarChar(150)
+  prestige_point BigInt         @default(0)
+  email          String         @db.VarChar
+  actions        actions[]
+  chat_members   chat_members[]
+  highlights     highlights[]
+  messages       messages[]
+  stories        stories[]
+}

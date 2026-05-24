@@ -1,0 +1,9 @@
+- blog
+- chat
+- profil
+- versus (tinder like)
+- login + registration
+- password encryption
+
+
+
