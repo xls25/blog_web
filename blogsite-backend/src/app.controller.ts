@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -11,7 +11,10 @@ export class AppController {
   }
 
   @Get('users')
-  getUsers() {
+  getUsers(@Query('id') id: number) {
+    if (id) {
+      return this.appService.getUserById(id);
+    }
     return this.appService.getUsers();
   }
 }
