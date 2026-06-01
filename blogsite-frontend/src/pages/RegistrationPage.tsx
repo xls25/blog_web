@@ -1,9 +1,9 @@
 import SignIn from "../components/SignIn";
 import type UserSignIn from "../types/user-sign-in-type";
 
-export default function LoginPage() {
+export default function RegistrationPage() {
   const handleNewUserData = (newUserData: UserSignIn) => {
-    console.log(`Log in: ${newUserData.username} | ${newUserData.password}`);
+    console.log(`Registration: ${newUserData.username} | ${newUserData.password}`);
   };
 
   return <SignIn getUserData={handleNewUserData} />;
