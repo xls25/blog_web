@@ -8,6 +8,7 @@ import "primeicons/primeicons.css";
 
 function App() {
   const user: User = { id: 0, loggedIn: false };
+
   return (
     // UserContext feltöltése értékkel, a Router alkalmazása
     <PrimeReactProvider>

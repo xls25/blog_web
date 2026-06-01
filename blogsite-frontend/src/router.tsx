@@ -16,7 +16,7 @@ export default function Router() {
 
         {/* A LoginPage és későbbi regisztráció védése */}
         <Route element={<LoginRoute />}>
-          <Route path="/log-in" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
         </Route>
       </Routes>
