@@ -8,14 +8,4 @@ export class AppService {
   getHello(): string {
     return 'Hello World!';
   }
-
-  getUsers() {
-    return this.prisma.users.findMany();
-  }
-
-  getUserById(id: number) {
-    return this.prisma.users.findUnique({
-      where: { id: id },
-    });
-  }
 }
