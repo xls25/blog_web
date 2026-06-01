@@ -65,13 +65,13 @@ model stories {
 
 model users {
   id             BigInt         @id @default(autoincrement())
-  username       String         @db.VarChar(20)
+  username       String         @unique @db.VarChar(20)
   birth_date     DateTime       @db.Date
   password       String         @db.VarChar(255)
   is_admin       Boolean        @default(false)
   description    String?        @db.VarChar(150)
   prestige_point BigInt         @default(0)
-  email          String         @db.VarChar
+  email          String         @unique @db.VarChar
   actions        actions[]
   chat_members   chat_members[]
   highlights     highlights[]

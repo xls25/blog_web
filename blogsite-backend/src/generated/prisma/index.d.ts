@@ -9964,22 +9964,22 @@ export namespace Prisma {
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
     id?: bigint | number
+    username?: string
+    email?: string
     AND?: usersWhereInput | usersWhereInput[]
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
-    username?: StringFilter<"users"> | string
     birth_date?: DateTimeFilter<"users"> | Date | string
     password?: StringFilter<"users"> | string
     is_admin?: BoolFilter<"users"> | boolean
     description?: StringNullableFilter<"users"> | string | null
     prestige_point?: BigIntFilter<"users"> | bigint | number
-    email?: StringFilter<"users"> | string
     actions?: ActionsListRelationFilter
     chat_members?: Chat_membersListRelationFilter
     highlights?: HighlightsListRelationFilter
     messages?: MessagesListRelationFilter
     stories?: StoriesListRelationFilter
-  }, "id">
+  }, "id" | "username" | "email">
 
   export type usersOrderByWithAggregationInput = {
     id?: SortOrder
