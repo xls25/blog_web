@@ -6,5 +6,5 @@ export default function LandingRoute() {
 
     // Ha a user nincs bejelentkezve redirectel a /log-in url-re, ha be van, akkor megjelenik a LandingPage
 
-    return !user.loggedIn ? <Navigate to={"/login"} /> : <Outlet />
+    return !user.loggedIn ? <Navigate to={"/auth/login"} /> : <Outlet />
 }

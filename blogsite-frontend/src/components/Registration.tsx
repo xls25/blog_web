@@ -7,10 +7,7 @@ import { Calendar } from "primereact/calendar";
 import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-interface RegProps {
-  onSwitchToLogin: () => void;
-}
+import { Link } from "react-router-dom";
 
 const registrationSchema = z
   .object({
@@ -57,7 +54,7 @@ const registrationSchema = z
 
 type RegistrationFormValues = z.infer<typeof registrationSchema>;
 
-function Registration({ onSwitchToLogin }: RegProps) {
+function Registration() {
   const {
     control,
     handleSubmit,
@@ -79,13 +76,12 @@ function Registration({ onSwitchToLogin }: RegProps) {
 
   return (
     <div className="flex flex-col justify-center">
-      <div
-        className="flex items-center gap-5 cursor-pointer font-bold mb-20 -mt-20  w-40"
-        onClick={onSwitchToLogin}
-      >
-        <i className="pi pi-arrow-left"></i>
-        Back to login
-      </div>
+      <Link to={"/auth/login"}>
+        <div className="flex items-center gap-5 cursor-pointer font-bold mb-20 -mt-20  w-40">
+          <i className="pi pi-arrow-left"></i>
+          Back to login
+        </div>
+      </Link>
 
       <form
         className="flex flex-col gap-5"

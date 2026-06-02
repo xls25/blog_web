@@ -1,10 +1,15 @@
 import { useMediaQuery } from "react-responsive";
-import Login from "../components/Login.tsx";
-import { useState } from "react";
-import Registration from "../components/Registration.tsx";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function AuthPage() {
-  const [pageState, setPageState] = useState<"login" | "register">("login");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname.endsWith("auth") || location.pathname.endsWith("auth/")) navigate("login");
+
+  }, [location.pathname, navigate]);
 
   const breakpoint1500px = useMediaQuery({ minWidth: 1500 });
   const breakpoint1200px = useMediaQuery({ maxWidth: 1200 });
@@ -43,11 +48,8 @@ function AuthPage() {
       <div
         className={`${!breakpoint1500px ? "w-full" : "w-[60%]"} bg-primary flex flex-col gap-3 ${heightBreakpoint655px ? "h-full" : "justify-center"} ${breakpoint1200px ? "p-10" : "p-24"} text-gray-light ${breakpoint855px ? "border-none" : "border-l border-l-gray-600"}`}
       >
-        {pageState === "login" ? (
-          <Login onSwitchToRegister={() => setPageState("register")} />
-        ) : (
-          <Registration onSwitchToLogin={() => setPageState("login")} />
-        )}
+
+        <Outlet />
       </div>
     </div>
   );

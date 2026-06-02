@@ -3,6 +3,8 @@ import LandingPage from "./pages/LandingPage";
 import LoginRoute from "./routes/LoginRoute";
 import LandingRoute from "./routes/LandingRoute";
 import AuthPage from "./pages/AuthPage.tsx";
+import Login from "./components/Login.tsx";
+import Registration from "./components/Registration.tsx";
 
 export default function Router() {
   return (
@@ -15,7 +17,10 @@ export default function Router() {
 
         {/* A LoginPage és későbbi regisztráció védése */}
         <Route element={<LoginRoute />}>
-          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/auth" element={<AuthPage />}>
+            <Route path="login" element={<Login />}/>
+            <Route path={"registration"} element={<Registration />}/>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

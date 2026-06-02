@@ -2,11 +2,7 @@ import { Link } from "react-router-dom";
 import { type ChangeEvent, useState } from "react";
 import type UserSignIn from "../types/user-sign-in-type.ts";
 
-interface LoginProps {
-  onSwitchToRegister: () => void;
-}
-
-function Login({ onSwitchToRegister }: LoginProps) {
+function Login() {
   const [userData, setUserData] = useState<UserSignIn>(() => ({
     username: "",
     password: "",
@@ -67,12 +63,11 @@ function Login({ onSwitchToRegister }: LoginProps) {
         Sign in with Google
       </button>
 
-      <button
-        onClick={onSwitchToRegister}
-        className="py-2.5 outline outline-accent mt-3 rounded-2xl text-accent tracking-wide font-semibold duration-200 hover:bg-primary-light/10 cursor-pointer"
-      >
-        Create new account
-      </button>
+      <Link to={"/auth/registration"} className="flex flex-col">
+        <button className="py-2.5 outline out yline-accent mt-3 rounded-2xl text-accent tracking-wide font-semibold duration-200 hover:bg-primary-light/10 cursor-pointer">
+          Create new account
+        </button>
+      </Link>
     </>
   );
 }
