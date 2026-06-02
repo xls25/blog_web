@@ -8,6 +8,8 @@ import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link } from "react-router-dom";
+import type { PostNewUser } from "../types/user-reg-type.ts";
+import { postNewUser } from "../services/registration.service.ts";
 
 const registrationSchema = z
   .object({
@@ -70,8 +72,28 @@ function Registration() {
     },
   });
 
-  const onFormSubmit = (data: RegistrationFormValues) => {
+  const onFormSubmit = async (data: RegistrationFormValues) => {
     console.log(data);
+    const newUserData = convertData(data);
+
+    try {
+      const response =  await postNewUser(newUserData);
+      if (!response.ok) throw new Error("Could not create new user");
+      const data = await response.json();
+      console.log(data);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const convertData = (user: RegistrationFormValues): PostNewUser => {
+      return ({
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        birth_date: user.birth_date.toISOString(),
+      })
   };
 
   return (

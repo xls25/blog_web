@@ -48,6 +48,16 @@ export type stories = $Result.DefaultSelection<Prisma.$storiesPayload>
  * 
  */
 export type users = $Result.DefaultSelection<Prisma.$usersPayload>
+/**
+ * Model followers
+ * 
+ */
+export type followers = $Result.DefaultSelection<Prisma.$followersPayload>
+/**
+ * Model profile_data
+ * 
+ */
+export type profile_data = $Result.DefaultSelection<Prisma.$profile_dataPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -239,6 +249,26 @@ export class PrismaClient<
     * ```
     */
   get users(): Prisma.usersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.followers`: Exposes CRUD operations for the **followers** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Followers
+    * const followers = await prisma.followers.findMany()
+    * ```
+    */
+  get followers(): Prisma.followersDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.profile_data`: Exposes CRUD operations for the **profile_data** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Profile_data
+    * const profile_data = await prisma.profile_data.findMany()
+    * ```
+    */
+  get profile_data(): Prisma.profile_dataDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -679,7 +709,9 @@ export namespace Prisma {
     highlights: 'highlights',
     messages: 'messages',
     stories: 'stories',
-    users: 'users'
+    users: 'users',
+    followers: 'followers',
+    profile_data: 'profile_data'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -695,7 +727,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "actions" | "chat_members" | "chats" | "highlights" | "messages" | "stories" | "users"
+      modelProps: "actions" | "chat_members" | "chats" | "highlights" | "messages" | "stories" | "users" | "followers" | "profile_data"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1217,6 +1249,154 @@ export namespace Prisma {
           }
         }
       }
+      followers: {
+        payload: Prisma.$followersPayload<ExtArgs>
+        fields: Prisma.followersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.followersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.followersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>
+          }
+          findFirst: {
+            args: Prisma.followersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.followersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>
+          }
+          findMany: {
+            args: Prisma.followersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>[]
+          }
+          create: {
+            args: Prisma.followersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>
+          }
+          createMany: {
+            args: Prisma.followersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.followersCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>[]
+          }
+          delete: {
+            args: Prisma.followersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>
+          }
+          update: {
+            args: Prisma.followersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>
+          }
+          deleteMany: {
+            args: Prisma.followersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.followersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.followersUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>[]
+          }
+          upsert: {
+            args: Prisma.followersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$followersPayload>
+          }
+          aggregate: {
+            args: Prisma.FollowersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFollowers>
+          }
+          groupBy: {
+            args: Prisma.followersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FollowersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.followersCountArgs<ExtArgs>
+            result: $Utils.Optional<FollowersCountAggregateOutputType> | number
+          }
+        }
+      }
+      profile_data: {
+        payload: Prisma.$profile_dataPayload<ExtArgs>
+        fields: Prisma.profile_dataFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.profile_dataFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.profile_dataFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>
+          }
+          findFirst: {
+            args: Prisma.profile_dataFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.profile_dataFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>
+          }
+          findMany: {
+            args: Prisma.profile_dataFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>[]
+          }
+          create: {
+            args: Prisma.profile_dataCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>
+          }
+          createMany: {
+            args: Prisma.profile_dataCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.profile_dataCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>[]
+          }
+          delete: {
+            args: Prisma.profile_dataDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>
+          }
+          update: {
+            args: Prisma.profile_dataUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>
+          }
+          deleteMany: {
+            args: Prisma.profile_dataDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.profile_dataUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.profile_dataUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>[]
+          }
+          upsert: {
+            args: Prisma.profile_dataUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$profile_dataPayload>
+          }
+          aggregate: {
+            args: Prisma.Profile_dataAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfile_data>
+          }
+          groupBy: {
+            args: Prisma.profile_dataGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Profile_dataGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.profile_dataCountArgs<ExtArgs>
+            result: $Utils.Optional<Profile_dataCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1332,6 +1512,8 @@ export namespace Prisma {
     messages?: messagesOmit
     stories?: storiesOmit
     users?: usersOmit
+    followers?: followersOmit
+    profile_data?: profile_dataOmit
   }
 
   /* Types for Logging */
@@ -1454,16 +1636,22 @@ export namespace Prisma {
   export type UsersCountOutputType = {
     actions: number
     chat_members: number
+    followers_followers_followed_idTousers: number
+    followers_followers_user_idTousers: number
     highlights: number
     messages: number
+    profile_data: number
     stories: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     actions?: boolean | UsersCountOutputTypeCountActionsArgs
     chat_members?: boolean | UsersCountOutputTypeCountChat_membersArgs
+    followers_followers_followed_idTousers?: boolean | UsersCountOutputTypeCountFollowers_followers_followed_idTousersArgs
+    followers_followers_user_idTousers?: boolean | UsersCountOutputTypeCountFollowers_followers_user_idTousersArgs
     highlights?: boolean | UsersCountOutputTypeCountHighlightsArgs
     messages?: boolean | UsersCountOutputTypeCountMessagesArgs
+    profile_data?: boolean | UsersCountOutputTypeCountProfile_dataArgs
     stories?: boolean | UsersCountOutputTypeCountStoriesArgs
   }
 
@@ -1495,6 +1683,20 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
+  export type UsersCountOutputTypeCountFollowers_followers_followed_idTousersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: followersWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountFollowers_followers_user_idTousersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: followersWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
   export type UsersCountOutputTypeCountHighlightsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: highlightsWhereInput
   }
@@ -1504,6 +1706,13 @@ export namespace Prisma {
    */
   export type UsersCountOutputTypeCountMessagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: messagesWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountProfile_dataArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: profile_dataWhereInput
   }
 
   /**
@@ -8146,12 +8355,10 @@ export namespace Prisma {
 
   export type UsersAvgAggregateOutputType = {
     id: number | null
-    prestige_point: number | null
   }
 
   export type UsersSumAggregateOutputType = {
     id: bigint | null
-    prestige_point: bigint | null
   }
 
   export type UsersMinAggregateOutputType = {
@@ -8160,8 +8367,6 @@ export namespace Prisma {
     birth_date: Date | null
     password: string | null
     is_admin: boolean | null
-    description: string | null
-    prestige_point: bigint | null
     email: string | null
   }
 
@@ -8171,8 +8376,6 @@ export namespace Prisma {
     birth_date: Date | null
     password: string | null
     is_admin: boolean | null
-    description: string | null
-    prestige_point: bigint | null
     email: string | null
   }
 
@@ -8182,8 +8385,6 @@ export namespace Prisma {
     birth_date: number
     password: number
     is_admin: number
-    description: number
-    prestige_point: number
     email: number
     _all: number
   }
@@ -8191,12 +8392,10 @@ export namespace Prisma {
 
   export type UsersAvgAggregateInputType = {
     id?: true
-    prestige_point?: true
   }
 
   export type UsersSumAggregateInputType = {
     id?: true
-    prestige_point?: true
   }
 
   export type UsersMinAggregateInputType = {
@@ -8205,8 +8404,6 @@ export namespace Prisma {
     birth_date?: true
     password?: true
     is_admin?: true
-    description?: true
-    prestige_point?: true
     email?: true
   }
 
@@ -8216,8 +8413,6 @@ export namespace Prisma {
     birth_date?: true
     password?: true
     is_admin?: true
-    description?: true
-    prestige_point?: true
     email?: true
   }
 
@@ -8227,8 +8422,6 @@ export namespace Prisma {
     birth_date?: true
     password?: true
     is_admin?: true
-    description?: true
-    prestige_point?: true
     email?: true
     _all?: true
   }
@@ -8325,8 +8518,6 @@ export namespace Prisma {
     birth_date: Date
     password: string
     is_admin: boolean
-    description: string | null
-    prestige_point: bigint
     email: string
     _count: UsersCountAggregateOutputType | null
     _avg: UsersAvgAggregateOutputType | null
@@ -8355,13 +8546,14 @@ export namespace Prisma {
     birth_date?: boolean
     password?: boolean
     is_admin?: boolean
-    description?: boolean
-    prestige_point?: boolean
     email?: boolean
     actions?: boolean | users$actionsArgs<ExtArgs>
     chat_members?: boolean | users$chat_membersArgs<ExtArgs>
+    followers_followers_followed_idTousers?: boolean | users$followers_followers_followed_idTousersArgs<ExtArgs>
+    followers_followers_user_idTousers?: boolean | users$followers_followers_user_idTousersArgs<ExtArgs>
     highlights?: boolean | users$highlightsArgs<ExtArgs>
     messages?: boolean | users$messagesArgs<ExtArgs>
+    profile_data?: boolean | users$profile_dataArgs<ExtArgs>
     stories?: boolean | users$storiesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
@@ -8372,8 +8564,6 @@ export namespace Prisma {
     birth_date?: boolean
     password?: boolean
     is_admin?: boolean
-    description?: boolean
-    prestige_point?: boolean
     email?: boolean
   }, ExtArgs["result"]["users"]>
 
@@ -8383,8 +8573,6 @@ export namespace Prisma {
     birth_date?: boolean
     password?: boolean
     is_admin?: boolean
-    description?: boolean
-    prestige_point?: boolean
     email?: boolean
   }, ExtArgs["result"]["users"]>
 
@@ -8394,17 +8582,18 @@ export namespace Prisma {
     birth_date?: boolean
     password?: boolean
     is_admin?: boolean
-    description?: boolean
-    prestige_point?: boolean
     email?: boolean
   }
 
-  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "birth_date" | "password" | "is_admin" | "description" | "prestige_point" | "email", ExtArgs["result"]["users"]>
+  export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "username" | "birth_date" | "password" | "is_admin" | "email", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     actions?: boolean | users$actionsArgs<ExtArgs>
     chat_members?: boolean | users$chat_membersArgs<ExtArgs>
+    followers_followers_followed_idTousers?: boolean | users$followers_followers_followed_idTousersArgs<ExtArgs>
+    followers_followers_user_idTousers?: boolean | users$followers_followers_user_idTousersArgs<ExtArgs>
     highlights?: boolean | users$highlightsArgs<ExtArgs>
     messages?: boolean | users$messagesArgs<ExtArgs>
+    profile_data?: boolean | users$profile_dataArgs<ExtArgs>
     stories?: boolean | users$storiesArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -8416,8 +8605,11 @@ export namespace Prisma {
     objects: {
       actions: Prisma.$actionsPayload<ExtArgs>[]
       chat_members: Prisma.$chat_membersPayload<ExtArgs>[]
+      followers_followers_followed_idTousers: Prisma.$followersPayload<ExtArgs>[]
+      followers_followers_user_idTousers: Prisma.$followersPayload<ExtArgs>[]
       highlights: Prisma.$highlightsPayload<ExtArgs>[]
       messages: Prisma.$messagesPayload<ExtArgs>[]
+      profile_data: Prisma.$profile_dataPayload<ExtArgs>[]
       stories: Prisma.$storiesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -8426,8 +8618,6 @@ export namespace Prisma {
       birth_date: Date
       password: string
       is_admin: boolean
-      description: string | null
-      prestige_point: bigint
       email: string
     }, ExtArgs["result"]["users"]>
     composites: {}
@@ -8825,8 +9015,11 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     actions<T extends users$actionsArgs<ExtArgs> = {}>(args?: Subset<T, users$actionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$actionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     chat_members<T extends users$chat_membersArgs<ExtArgs> = {}>(args?: Subset<T, users$chat_membersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$chat_membersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    followers_followers_followed_idTousers<T extends users$followers_followers_followed_idTousersArgs<ExtArgs> = {}>(args?: Subset<T, users$followers_followers_followed_idTousersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    followers_followers_user_idTousers<T extends users$followers_followers_user_idTousersArgs<ExtArgs> = {}>(args?: Subset<T, users$followers_followers_user_idTousersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     highlights<T extends users$highlightsArgs<ExtArgs> = {}>(args?: Subset<T, users$highlightsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$highlightsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     messages<T extends users$messagesArgs<ExtArgs> = {}>(args?: Subset<T, users$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$messagesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    profile_data<T extends users$profile_dataArgs<ExtArgs> = {}>(args?: Subset<T, users$profile_dataArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     stories<T extends users$storiesArgs<ExtArgs> = {}>(args?: Subset<T, users$storiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$storiesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -8862,8 +9055,6 @@ export namespace Prisma {
     readonly birth_date: FieldRef<"users", 'DateTime'>
     readonly password: FieldRef<"users", 'String'>
     readonly is_admin: FieldRef<"users", 'Boolean'>
-    readonly description: FieldRef<"users", 'String'>
-    readonly prestige_point: FieldRef<"users", 'BigInt'>
     readonly email: FieldRef<"users", 'String'>
   }
     
@@ -9306,6 +9497,54 @@ export namespace Prisma {
   }
 
   /**
+   * users.followers_followers_followed_idTousers
+   */
+  export type users$followers_followers_followed_idTousersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    where?: followersWhereInput
+    orderBy?: followersOrderByWithRelationInput | followersOrderByWithRelationInput[]
+    cursor?: followersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FollowersScalarFieldEnum | FollowersScalarFieldEnum[]
+  }
+
+  /**
+   * users.followers_followers_user_idTousers
+   */
+  export type users$followers_followers_user_idTousersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    where?: followersWhereInput
+    orderBy?: followersOrderByWithRelationInput | followersOrderByWithRelationInput[]
+    cursor?: followersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FollowersScalarFieldEnum | FollowersScalarFieldEnum[]
+  }
+
+  /**
    * users.highlights
    */
   export type users$highlightsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9354,6 +9593,30 @@ export namespace Prisma {
   }
 
   /**
+   * users.profile_data
+   */
+  export type users$profile_dataArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    where?: profile_dataWhereInput
+    orderBy?: profile_dataOrderByWithRelationInput | profile_dataOrderByWithRelationInput[]
+    cursor?: profile_dataWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Profile_dataScalarFieldEnum | Profile_dataScalarFieldEnum[]
+  }
+
+  /**
    * users.stories
    */
   export type users$storiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9393,6 +9656,2181 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: usersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model followers
+   */
+
+  export type AggregateFollowers = {
+    _count: FollowersCountAggregateOutputType | null
+    _avg: FollowersAvgAggregateOutputType | null
+    _sum: FollowersSumAggregateOutputType | null
+    _min: FollowersMinAggregateOutputType | null
+    _max: FollowersMaxAggregateOutputType | null
+  }
+
+  export type FollowersAvgAggregateOutputType = {
+    user_id: number | null
+    followed_id: number | null
+  }
+
+  export type FollowersSumAggregateOutputType = {
+    user_id: bigint | null
+    followed_id: bigint | null
+  }
+
+  export type FollowersMinAggregateOutputType = {
+    user_id: bigint | null
+    followed_id: bigint | null
+  }
+
+  export type FollowersMaxAggregateOutputType = {
+    user_id: bigint | null
+    followed_id: bigint | null
+  }
+
+  export type FollowersCountAggregateOutputType = {
+    user_id: number
+    followed_id: number
+    _all: number
+  }
+
+
+  export type FollowersAvgAggregateInputType = {
+    user_id?: true
+    followed_id?: true
+  }
+
+  export type FollowersSumAggregateInputType = {
+    user_id?: true
+    followed_id?: true
+  }
+
+  export type FollowersMinAggregateInputType = {
+    user_id?: true
+    followed_id?: true
+  }
+
+  export type FollowersMaxAggregateInputType = {
+    user_id?: true
+    followed_id?: true
+  }
+
+  export type FollowersCountAggregateInputType = {
+    user_id?: true
+    followed_id?: true
+    _all?: true
+  }
+
+  export type FollowersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which followers to aggregate.
+     */
+    where?: followersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of followers to fetch.
+     */
+    orderBy?: followersOrderByWithRelationInput | followersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: followersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` followers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` followers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned followers
+    **/
+    _count?: true | FollowersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FollowersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FollowersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FollowersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FollowersMaxAggregateInputType
+  }
+
+  export type GetFollowersAggregateType<T extends FollowersAggregateArgs> = {
+        [P in keyof T & keyof AggregateFollowers]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFollowers[P]>
+      : GetScalarType<T[P], AggregateFollowers[P]>
+  }
+
+
+
+
+  export type followersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: followersWhereInput
+    orderBy?: followersOrderByWithAggregationInput | followersOrderByWithAggregationInput[]
+    by: FollowersScalarFieldEnum[] | FollowersScalarFieldEnum
+    having?: followersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FollowersCountAggregateInputType | true
+    _avg?: FollowersAvgAggregateInputType
+    _sum?: FollowersSumAggregateInputType
+    _min?: FollowersMinAggregateInputType
+    _max?: FollowersMaxAggregateInputType
+  }
+
+  export type FollowersGroupByOutputType = {
+    user_id: bigint
+    followed_id: bigint
+    _count: FollowersCountAggregateOutputType | null
+    _avg: FollowersAvgAggregateOutputType | null
+    _sum: FollowersSumAggregateOutputType | null
+    _min: FollowersMinAggregateOutputType | null
+    _max: FollowersMaxAggregateOutputType | null
+  }
+
+  type GetFollowersGroupByPayload<T extends followersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FollowersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FollowersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FollowersGroupByOutputType[P]>
+            : GetScalarType<T[P], FollowersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type followersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    user_id?: boolean
+    followed_id?: boolean
+    users_followers_followed_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+    users_followers_user_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["followers"]>
+
+  export type followersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    user_id?: boolean
+    followed_id?: boolean
+    users_followers_followed_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+    users_followers_user_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["followers"]>
+
+  export type followersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    user_id?: boolean
+    followed_id?: boolean
+    users_followers_followed_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+    users_followers_user_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["followers"]>
+
+  export type followersSelectScalar = {
+    user_id?: boolean
+    followed_id?: boolean
+  }
+
+  export type followersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"user_id" | "followed_id", ExtArgs["result"]["followers"]>
+  export type followersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users_followers_followed_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+    users_followers_user_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type followersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users_followers_followed_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+    users_followers_user_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type followersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users_followers_followed_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+    users_followers_user_idTousers?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $followersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "followers"
+    objects: {
+      users_followers_followed_idTousers: Prisma.$usersPayload<ExtArgs>
+      users_followers_user_idTousers: Prisma.$usersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      user_id: bigint
+      followed_id: bigint
+    }, ExtArgs["result"]["followers"]>
+    composites: {}
+  }
+
+  type followersGetPayload<S extends boolean | null | undefined | followersDefaultArgs> = $Result.GetResult<Prisma.$followersPayload, S>
+
+  type followersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<followersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FollowersCountAggregateInputType | true
+    }
+
+  export interface followersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['followers'], meta: { name: 'followers' } }
+    /**
+     * Find zero or one Followers that matches the filter.
+     * @param {followersFindUniqueArgs} args - Arguments to find a Followers
+     * @example
+     * // Get one Followers
+     * const followers = await prisma.followers.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends followersFindUniqueArgs>(args: SelectSubset<T, followersFindUniqueArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Followers that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {followersFindUniqueOrThrowArgs} args - Arguments to find a Followers
+     * @example
+     * // Get one Followers
+     * const followers = await prisma.followers.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends followersFindUniqueOrThrowArgs>(args: SelectSubset<T, followersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Followers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {followersFindFirstArgs} args - Arguments to find a Followers
+     * @example
+     * // Get one Followers
+     * const followers = await prisma.followers.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends followersFindFirstArgs>(args?: SelectSubset<T, followersFindFirstArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Followers that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {followersFindFirstOrThrowArgs} args - Arguments to find a Followers
+     * @example
+     * // Get one Followers
+     * const followers = await prisma.followers.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends followersFindFirstOrThrowArgs>(args?: SelectSubset<T, followersFindFirstOrThrowArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Followers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {followersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Followers
+     * const followers = await prisma.followers.findMany()
+     * 
+     * // Get first 10 Followers
+     * const followers = await prisma.followers.findMany({ take: 10 })
+     * 
+     * // Only select the `user_id`
+     * const followersWithUser_idOnly = await prisma.followers.findMany({ select: { user_id: true } })
+     * 
+     */
+    findMany<T extends followersFindManyArgs>(args?: SelectSubset<T, followersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Followers.
+     * @param {followersCreateArgs} args - Arguments to create a Followers.
+     * @example
+     * // Create one Followers
+     * const Followers = await prisma.followers.create({
+     *   data: {
+     *     // ... data to create a Followers
+     *   }
+     * })
+     * 
+     */
+    create<T extends followersCreateArgs>(args: SelectSubset<T, followersCreateArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Followers.
+     * @param {followersCreateManyArgs} args - Arguments to create many Followers.
+     * @example
+     * // Create many Followers
+     * const followers = await prisma.followers.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends followersCreateManyArgs>(args?: SelectSubset<T, followersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Followers and returns the data saved in the database.
+     * @param {followersCreateManyAndReturnArgs} args - Arguments to create many Followers.
+     * @example
+     * // Create many Followers
+     * const followers = await prisma.followers.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Followers and only return the `user_id`
+     * const followersWithUser_idOnly = await prisma.followers.createManyAndReturn({
+     *   select: { user_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends followersCreateManyAndReturnArgs>(args?: SelectSubset<T, followersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Followers.
+     * @param {followersDeleteArgs} args - Arguments to delete one Followers.
+     * @example
+     * // Delete one Followers
+     * const Followers = await prisma.followers.delete({
+     *   where: {
+     *     // ... filter to delete one Followers
+     *   }
+     * })
+     * 
+     */
+    delete<T extends followersDeleteArgs>(args: SelectSubset<T, followersDeleteArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Followers.
+     * @param {followersUpdateArgs} args - Arguments to update one Followers.
+     * @example
+     * // Update one Followers
+     * const followers = await prisma.followers.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends followersUpdateArgs>(args: SelectSubset<T, followersUpdateArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Followers.
+     * @param {followersDeleteManyArgs} args - Arguments to filter Followers to delete.
+     * @example
+     * // Delete a few Followers
+     * const { count } = await prisma.followers.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends followersDeleteManyArgs>(args?: SelectSubset<T, followersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Followers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {followersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Followers
+     * const followers = await prisma.followers.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends followersUpdateManyArgs>(args: SelectSubset<T, followersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Followers and returns the data updated in the database.
+     * @param {followersUpdateManyAndReturnArgs} args - Arguments to update many Followers.
+     * @example
+     * // Update many Followers
+     * const followers = await prisma.followers.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Followers and only return the `user_id`
+     * const followersWithUser_idOnly = await prisma.followers.updateManyAndReturn({
+     *   select: { user_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends followersUpdateManyAndReturnArgs>(args: SelectSubset<T, followersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Followers.
+     * @param {followersUpsertArgs} args - Arguments to update or create a Followers.
+     * @example
+     * // Update or create a Followers
+     * const followers = await prisma.followers.upsert({
+     *   create: {
+     *     // ... data to create a Followers
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Followers we want to update
+     *   }
+     * })
+     */
+    upsert<T extends followersUpsertArgs>(args: SelectSubset<T, followersUpsertArgs<ExtArgs>>): Prisma__followersClient<$Result.GetResult<Prisma.$followersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Followers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {followersCountArgs} args - Arguments to filter Followers to count.
+     * @example
+     * // Count the number of Followers
+     * const count = await prisma.followers.count({
+     *   where: {
+     *     // ... the filter for the Followers we want to count
+     *   }
+     * })
+    **/
+    count<T extends followersCountArgs>(
+      args?: Subset<T, followersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FollowersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Followers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FollowersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FollowersAggregateArgs>(args: Subset<T, FollowersAggregateArgs>): Prisma.PrismaPromise<GetFollowersAggregateType<T>>
+
+    /**
+     * Group by Followers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {followersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends followersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: followersGroupByArgs['orderBy'] }
+        : { orderBy?: followersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, followersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFollowersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the followers model
+   */
+  readonly fields: followersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for followers.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__followersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    users_followers_followed_idTousers<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    users_followers_user_idTousers<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the followers model
+   */
+  interface followersFieldRefs {
+    readonly user_id: FieldRef<"followers", 'BigInt'>
+    readonly followed_id: FieldRef<"followers", 'BigInt'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * followers findUnique
+   */
+  export type followersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * Filter, which followers to fetch.
+     */
+    where: followersWhereUniqueInput
+  }
+
+  /**
+   * followers findUniqueOrThrow
+   */
+  export type followersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * Filter, which followers to fetch.
+     */
+    where: followersWhereUniqueInput
+  }
+
+  /**
+   * followers findFirst
+   */
+  export type followersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * Filter, which followers to fetch.
+     */
+    where?: followersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of followers to fetch.
+     */
+    orderBy?: followersOrderByWithRelationInput | followersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for followers.
+     */
+    cursor?: followersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` followers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` followers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of followers.
+     */
+    distinct?: FollowersScalarFieldEnum | FollowersScalarFieldEnum[]
+  }
+
+  /**
+   * followers findFirstOrThrow
+   */
+  export type followersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * Filter, which followers to fetch.
+     */
+    where?: followersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of followers to fetch.
+     */
+    orderBy?: followersOrderByWithRelationInput | followersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for followers.
+     */
+    cursor?: followersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` followers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` followers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of followers.
+     */
+    distinct?: FollowersScalarFieldEnum | FollowersScalarFieldEnum[]
+  }
+
+  /**
+   * followers findMany
+   */
+  export type followersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * Filter, which followers to fetch.
+     */
+    where?: followersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of followers to fetch.
+     */
+    orderBy?: followersOrderByWithRelationInput | followersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing followers.
+     */
+    cursor?: followersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` followers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` followers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of followers.
+     */
+    distinct?: FollowersScalarFieldEnum | FollowersScalarFieldEnum[]
+  }
+
+  /**
+   * followers create
+   */
+  export type followersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a followers.
+     */
+    data: XOR<followersCreateInput, followersUncheckedCreateInput>
+  }
+
+  /**
+   * followers createMany
+   */
+  export type followersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many followers.
+     */
+    data: followersCreateManyInput | followersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * followers createManyAndReturn
+   */
+  export type followersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * The data used to create many followers.
+     */
+    data: followersCreateManyInput | followersCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * followers update
+   */
+  export type followersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a followers.
+     */
+    data: XOR<followersUpdateInput, followersUncheckedUpdateInput>
+    /**
+     * Choose, which followers to update.
+     */
+    where: followersWhereUniqueInput
+  }
+
+  /**
+   * followers updateMany
+   */
+  export type followersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update followers.
+     */
+    data: XOR<followersUpdateManyMutationInput, followersUncheckedUpdateManyInput>
+    /**
+     * Filter which followers to update
+     */
+    where?: followersWhereInput
+    /**
+     * Limit how many followers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * followers updateManyAndReturn
+   */
+  export type followersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * The data used to update followers.
+     */
+    data: XOR<followersUpdateManyMutationInput, followersUncheckedUpdateManyInput>
+    /**
+     * Filter which followers to update
+     */
+    where?: followersWhereInput
+    /**
+     * Limit how many followers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * followers upsert
+   */
+  export type followersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the followers to update in case it exists.
+     */
+    where: followersWhereUniqueInput
+    /**
+     * In case the followers found by the `where` argument doesn't exist, create a new followers with this data.
+     */
+    create: XOR<followersCreateInput, followersUncheckedCreateInput>
+    /**
+     * In case the followers was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<followersUpdateInput, followersUncheckedUpdateInput>
+  }
+
+  /**
+   * followers delete
+   */
+  export type followersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+    /**
+     * Filter which followers to delete.
+     */
+    where: followersWhereUniqueInput
+  }
+
+  /**
+   * followers deleteMany
+   */
+  export type followersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which followers to delete
+     */
+    where?: followersWhereInput
+    /**
+     * Limit how many followers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * followers without action
+   */
+  export type followersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the followers
+     */
+    select?: followersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the followers
+     */
+    omit?: followersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: followersInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model profile_data
+   */
+
+  export type AggregateProfile_data = {
+    _count: Profile_dataCountAggregateOutputType | null
+    _avg: Profile_dataAvgAggregateOutputType | null
+    _sum: Profile_dataSumAggregateOutputType | null
+    _min: Profile_dataMinAggregateOutputType | null
+    _max: Profile_dataMaxAggregateOutputType | null
+  }
+
+  export type Profile_dataAvgAggregateOutputType = {
+    id: number | null
+    user_id: number | null
+    prestige_point: number | null
+  }
+
+  export type Profile_dataSumAggregateOutputType = {
+    id: bigint | null
+    user_id: bigint | null
+    prestige_point: bigint | null
+  }
+
+  export type Profile_dataMinAggregateOutputType = {
+    id: bigint | null
+    user_id: bigint | null
+    description: string | null
+    prestige_point: bigint | null
+    pfp: string | null
+  }
+
+  export type Profile_dataMaxAggregateOutputType = {
+    id: bigint | null
+    user_id: bigint | null
+    description: string | null
+    prestige_point: bigint | null
+    pfp: string | null
+  }
+
+  export type Profile_dataCountAggregateOutputType = {
+    id: number
+    user_id: number
+    description: number
+    prestige_point: number
+    pfp: number
+    _all: number
+  }
+
+
+  export type Profile_dataAvgAggregateInputType = {
+    id?: true
+    user_id?: true
+    prestige_point?: true
+  }
+
+  export type Profile_dataSumAggregateInputType = {
+    id?: true
+    user_id?: true
+    prestige_point?: true
+  }
+
+  export type Profile_dataMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    description?: true
+    prestige_point?: true
+    pfp?: true
+  }
+
+  export type Profile_dataMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    description?: true
+    prestige_point?: true
+    pfp?: true
+  }
+
+  export type Profile_dataCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    description?: true
+    prestige_point?: true
+    pfp?: true
+    _all?: true
+  }
+
+  export type Profile_dataAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which profile_data to aggregate.
+     */
+    where?: profile_dataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of profile_data to fetch.
+     */
+    orderBy?: profile_dataOrderByWithRelationInput | profile_dataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: profile_dataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` profile_data from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` profile_data.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned profile_data
+    **/
+    _count?: true | Profile_dataCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Profile_dataAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Profile_dataSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Profile_dataMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Profile_dataMaxAggregateInputType
+  }
+
+  export type GetProfile_dataAggregateType<T extends Profile_dataAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfile_data]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfile_data[P]>
+      : GetScalarType<T[P], AggregateProfile_data[P]>
+  }
+
+
+
+
+  export type profile_dataGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: profile_dataWhereInput
+    orderBy?: profile_dataOrderByWithAggregationInput | profile_dataOrderByWithAggregationInput[]
+    by: Profile_dataScalarFieldEnum[] | Profile_dataScalarFieldEnum
+    having?: profile_dataScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Profile_dataCountAggregateInputType | true
+    _avg?: Profile_dataAvgAggregateInputType
+    _sum?: Profile_dataSumAggregateInputType
+    _min?: Profile_dataMinAggregateInputType
+    _max?: Profile_dataMaxAggregateInputType
+  }
+
+  export type Profile_dataGroupByOutputType = {
+    id: bigint
+    user_id: bigint
+    description: string | null
+    prestige_point: bigint
+    pfp: string | null
+    _count: Profile_dataCountAggregateOutputType | null
+    _avg: Profile_dataAvgAggregateOutputType | null
+    _sum: Profile_dataSumAggregateOutputType | null
+    _min: Profile_dataMinAggregateOutputType | null
+    _max: Profile_dataMaxAggregateOutputType | null
+  }
+
+  type GetProfile_dataGroupByPayload<T extends profile_dataGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Profile_dataGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Profile_dataGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Profile_dataGroupByOutputType[P]>
+            : GetScalarType<T[P], Profile_dataGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type profile_dataSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    description?: boolean
+    prestige_point?: boolean
+    pfp?: boolean
+    users?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile_data"]>
+
+  export type profile_dataSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    description?: boolean
+    prestige_point?: boolean
+    pfp?: boolean
+    users?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile_data"]>
+
+  export type profile_dataSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    description?: boolean
+    prestige_point?: boolean
+    pfp?: boolean
+    users?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["profile_data"]>
+
+  export type profile_dataSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    description?: boolean
+    prestige_point?: boolean
+    pfp?: boolean
+  }
+
+  export type profile_dataOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "description" | "prestige_point" | "pfp", ExtArgs["result"]["profile_data"]>
+  export type profile_dataInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type profile_dataIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type profile_dataIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    users?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $profile_dataPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "profile_data"
+    objects: {
+      users: Prisma.$usersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: bigint
+      user_id: bigint
+      description: string | null
+      prestige_point: bigint
+      pfp: string | null
+    }, ExtArgs["result"]["profile_data"]>
+    composites: {}
+  }
+
+  type profile_dataGetPayload<S extends boolean | null | undefined | profile_dataDefaultArgs> = $Result.GetResult<Prisma.$profile_dataPayload, S>
+
+  type profile_dataCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<profile_dataFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Profile_dataCountAggregateInputType | true
+    }
+
+  export interface profile_dataDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['profile_data'], meta: { name: 'profile_data' } }
+    /**
+     * Find zero or one Profile_data that matches the filter.
+     * @param {profile_dataFindUniqueArgs} args - Arguments to find a Profile_data
+     * @example
+     * // Get one Profile_data
+     * const profile_data = await prisma.profile_data.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends profile_dataFindUniqueArgs>(args: SelectSubset<T, profile_dataFindUniqueArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Profile_data that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {profile_dataFindUniqueOrThrowArgs} args - Arguments to find a Profile_data
+     * @example
+     * // Get one Profile_data
+     * const profile_data = await prisma.profile_data.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends profile_dataFindUniqueOrThrowArgs>(args: SelectSubset<T, profile_dataFindUniqueOrThrowArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Profile_data that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {profile_dataFindFirstArgs} args - Arguments to find a Profile_data
+     * @example
+     * // Get one Profile_data
+     * const profile_data = await prisma.profile_data.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends profile_dataFindFirstArgs>(args?: SelectSubset<T, profile_dataFindFirstArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Profile_data that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {profile_dataFindFirstOrThrowArgs} args - Arguments to find a Profile_data
+     * @example
+     * // Get one Profile_data
+     * const profile_data = await prisma.profile_data.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends profile_dataFindFirstOrThrowArgs>(args?: SelectSubset<T, profile_dataFindFirstOrThrowArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Profile_data that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {profile_dataFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Profile_data
+     * const profile_data = await prisma.profile_data.findMany()
+     * 
+     * // Get first 10 Profile_data
+     * const profile_data = await prisma.profile_data.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const profile_dataWithIdOnly = await prisma.profile_data.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends profile_dataFindManyArgs>(args?: SelectSubset<T, profile_dataFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Profile_data.
+     * @param {profile_dataCreateArgs} args - Arguments to create a Profile_data.
+     * @example
+     * // Create one Profile_data
+     * const Profile_data = await prisma.profile_data.create({
+     *   data: {
+     *     // ... data to create a Profile_data
+     *   }
+     * })
+     * 
+     */
+    create<T extends profile_dataCreateArgs>(args: SelectSubset<T, profile_dataCreateArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Profile_data.
+     * @param {profile_dataCreateManyArgs} args - Arguments to create many Profile_data.
+     * @example
+     * // Create many Profile_data
+     * const profile_data = await prisma.profile_data.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends profile_dataCreateManyArgs>(args?: SelectSubset<T, profile_dataCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Profile_data and returns the data saved in the database.
+     * @param {profile_dataCreateManyAndReturnArgs} args - Arguments to create many Profile_data.
+     * @example
+     * // Create many Profile_data
+     * const profile_data = await prisma.profile_data.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Profile_data and only return the `id`
+     * const profile_dataWithIdOnly = await prisma.profile_data.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends profile_dataCreateManyAndReturnArgs>(args?: SelectSubset<T, profile_dataCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Profile_data.
+     * @param {profile_dataDeleteArgs} args - Arguments to delete one Profile_data.
+     * @example
+     * // Delete one Profile_data
+     * const Profile_data = await prisma.profile_data.delete({
+     *   where: {
+     *     // ... filter to delete one Profile_data
+     *   }
+     * })
+     * 
+     */
+    delete<T extends profile_dataDeleteArgs>(args: SelectSubset<T, profile_dataDeleteArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Profile_data.
+     * @param {profile_dataUpdateArgs} args - Arguments to update one Profile_data.
+     * @example
+     * // Update one Profile_data
+     * const profile_data = await prisma.profile_data.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends profile_dataUpdateArgs>(args: SelectSubset<T, profile_dataUpdateArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Profile_data.
+     * @param {profile_dataDeleteManyArgs} args - Arguments to filter Profile_data to delete.
+     * @example
+     * // Delete a few Profile_data
+     * const { count } = await prisma.profile_data.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends profile_dataDeleteManyArgs>(args?: SelectSubset<T, profile_dataDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Profile_data.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {profile_dataUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Profile_data
+     * const profile_data = await prisma.profile_data.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends profile_dataUpdateManyArgs>(args: SelectSubset<T, profile_dataUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Profile_data and returns the data updated in the database.
+     * @param {profile_dataUpdateManyAndReturnArgs} args - Arguments to update many Profile_data.
+     * @example
+     * // Update many Profile_data
+     * const profile_data = await prisma.profile_data.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Profile_data and only return the `id`
+     * const profile_dataWithIdOnly = await prisma.profile_data.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends profile_dataUpdateManyAndReturnArgs>(args: SelectSubset<T, profile_dataUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Profile_data.
+     * @param {profile_dataUpsertArgs} args - Arguments to update or create a Profile_data.
+     * @example
+     * // Update or create a Profile_data
+     * const profile_data = await prisma.profile_data.upsert({
+     *   create: {
+     *     // ... data to create a Profile_data
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Profile_data we want to update
+     *   }
+     * })
+     */
+    upsert<T extends profile_dataUpsertArgs>(args: SelectSubset<T, profile_dataUpsertArgs<ExtArgs>>): Prisma__profile_dataClient<$Result.GetResult<Prisma.$profile_dataPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Profile_data.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {profile_dataCountArgs} args - Arguments to filter Profile_data to count.
+     * @example
+     * // Count the number of Profile_data
+     * const count = await prisma.profile_data.count({
+     *   where: {
+     *     // ... the filter for the Profile_data we want to count
+     *   }
+     * })
+    **/
+    count<T extends profile_dataCountArgs>(
+      args?: Subset<T, profile_dataCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Profile_dataCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Profile_data.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Profile_dataAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Profile_dataAggregateArgs>(args: Subset<T, Profile_dataAggregateArgs>): Prisma.PrismaPromise<GetProfile_dataAggregateType<T>>
+
+    /**
+     * Group by Profile_data.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {profile_dataGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends profile_dataGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: profile_dataGroupByArgs['orderBy'] }
+        : { orderBy?: profile_dataGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, profile_dataGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfile_dataGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the profile_data model
+   */
+  readonly fields: profile_dataFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for profile_data.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__profile_dataClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    users<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the profile_data model
+   */
+  interface profile_dataFieldRefs {
+    readonly id: FieldRef<"profile_data", 'BigInt'>
+    readonly user_id: FieldRef<"profile_data", 'BigInt'>
+    readonly description: FieldRef<"profile_data", 'String'>
+    readonly prestige_point: FieldRef<"profile_data", 'BigInt'>
+    readonly pfp: FieldRef<"profile_data", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * profile_data findUnique
+   */
+  export type profile_dataFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * Filter, which profile_data to fetch.
+     */
+    where: profile_dataWhereUniqueInput
+  }
+
+  /**
+   * profile_data findUniqueOrThrow
+   */
+  export type profile_dataFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * Filter, which profile_data to fetch.
+     */
+    where: profile_dataWhereUniqueInput
+  }
+
+  /**
+   * profile_data findFirst
+   */
+  export type profile_dataFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * Filter, which profile_data to fetch.
+     */
+    where?: profile_dataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of profile_data to fetch.
+     */
+    orderBy?: profile_dataOrderByWithRelationInput | profile_dataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for profile_data.
+     */
+    cursor?: profile_dataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` profile_data from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` profile_data.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of profile_data.
+     */
+    distinct?: Profile_dataScalarFieldEnum | Profile_dataScalarFieldEnum[]
+  }
+
+  /**
+   * profile_data findFirstOrThrow
+   */
+  export type profile_dataFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * Filter, which profile_data to fetch.
+     */
+    where?: profile_dataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of profile_data to fetch.
+     */
+    orderBy?: profile_dataOrderByWithRelationInput | profile_dataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for profile_data.
+     */
+    cursor?: profile_dataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` profile_data from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` profile_data.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of profile_data.
+     */
+    distinct?: Profile_dataScalarFieldEnum | Profile_dataScalarFieldEnum[]
+  }
+
+  /**
+   * profile_data findMany
+   */
+  export type profile_dataFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * Filter, which profile_data to fetch.
+     */
+    where?: profile_dataWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of profile_data to fetch.
+     */
+    orderBy?: profile_dataOrderByWithRelationInput | profile_dataOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing profile_data.
+     */
+    cursor?: profile_dataWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` profile_data from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` profile_data.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of profile_data.
+     */
+    distinct?: Profile_dataScalarFieldEnum | Profile_dataScalarFieldEnum[]
+  }
+
+  /**
+   * profile_data create
+   */
+  export type profile_dataCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * The data needed to create a profile_data.
+     */
+    data: XOR<profile_dataCreateInput, profile_dataUncheckedCreateInput>
+  }
+
+  /**
+   * profile_data createMany
+   */
+  export type profile_dataCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many profile_data.
+     */
+    data: profile_dataCreateManyInput | profile_dataCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * profile_data createManyAndReturn
+   */
+  export type profile_dataCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * The data used to create many profile_data.
+     */
+    data: profile_dataCreateManyInput | profile_dataCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * profile_data update
+   */
+  export type profile_dataUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * The data needed to update a profile_data.
+     */
+    data: XOR<profile_dataUpdateInput, profile_dataUncheckedUpdateInput>
+    /**
+     * Choose, which profile_data to update.
+     */
+    where: profile_dataWhereUniqueInput
+  }
+
+  /**
+   * profile_data updateMany
+   */
+  export type profile_dataUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update profile_data.
+     */
+    data: XOR<profile_dataUpdateManyMutationInput, profile_dataUncheckedUpdateManyInput>
+    /**
+     * Filter which profile_data to update
+     */
+    where?: profile_dataWhereInput
+    /**
+     * Limit how many profile_data to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * profile_data updateManyAndReturn
+   */
+  export type profile_dataUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * The data used to update profile_data.
+     */
+    data: XOR<profile_dataUpdateManyMutationInput, profile_dataUncheckedUpdateManyInput>
+    /**
+     * Filter which profile_data to update
+     */
+    where?: profile_dataWhereInput
+    /**
+     * Limit how many profile_data to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * profile_data upsert
+   */
+  export type profile_dataUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * The filter to search for the profile_data to update in case it exists.
+     */
+    where: profile_dataWhereUniqueInput
+    /**
+     * In case the profile_data found by the `where` argument doesn't exist, create a new profile_data with this data.
+     */
+    create: XOR<profile_dataCreateInput, profile_dataUncheckedCreateInput>
+    /**
+     * In case the profile_data was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<profile_dataUpdateInput, profile_dataUncheckedUpdateInput>
+  }
+
+  /**
+   * profile_data delete
+   */
+  export type profile_dataDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
+    /**
+     * Filter which profile_data to delete.
+     */
+    where: profile_dataWhereUniqueInput
+  }
+
+  /**
+   * profile_data deleteMany
+   */
+  export type profile_dataDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which profile_data to delete
+     */
+    where?: profile_dataWhereInput
+    /**
+     * Limit how many profile_data to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * profile_data without action
+   */
+  export type profile_dataDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the profile_data
+     */
+    select?: profile_dataSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the profile_data
+     */
+    omit?: profile_dataOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: profile_dataInclude<ExtArgs> | null
   }
 
 
@@ -9478,12 +11916,29 @@ export namespace Prisma {
     birth_date: 'birth_date',
     password: 'password',
     is_admin: 'is_admin',
-    description: 'description',
-    prestige_point: 'prestige_point',
     email: 'email'
   };
 
   export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
+
+
+  export const FollowersScalarFieldEnum: {
+    user_id: 'user_id',
+    followed_id: 'followed_id'
+  };
+
+  export type FollowersScalarFieldEnum = (typeof FollowersScalarFieldEnum)[keyof typeof FollowersScalarFieldEnum]
+
+
+  export const Profile_dataScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    description: 'description',
+    prestige_point: 'prestige_point',
+    pfp: 'pfp'
+  };
+
+  export type Profile_dataScalarFieldEnum = (typeof Profile_dataScalarFieldEnum)[keyof typeof Profile_dataScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9936,13 +12391,14 @@ export namespace Prisma {
     birth_date?: DateTimeFilter<"users"> | Date | string
     password?: StringFilter<"users"> | string
     is_admin?: BoolFilter<"users"> | boolean
-    description?: StringNullableFilter<"users"> | string | null
-    prestige_point?: BigIntFilter<"users"> | bigint | number
     email?: StringFilter<"users"> | string
     actions?: ActionsListRelationFilter
     chat_members?: Chat_membersListRelationFilter
+    followers_followers_followed_idTousers?: FollowersListRelationFilter
+    followers_followers_user_idTousers?: FollowersListRelationFilter
     highlights?: HighlightsListRelationFilter
     messages?: MessagesListRelationFilter
+    profile_data?: Profile_dataListRelationFilter
     stories?: StoriesListRelationFilter
   }
 
@@ -9952,13 +12408,14 @@ export namespace Prisma {
     birth_date?: SortOrder
     password?: SortOrder
     is_admin?: SortOrder
-    description?: SortOrderInput | SortOrder
-    prestige_point?: SortOrder
     email?: SortOrder
     actions?: actionsOrderByRelationAggregateInput
     chat_members?: chat_membersOrderByRelationAggregateInput
+    followers_followers_followed_idTousers?: followersOrderByRelationAggregateInput
+    followers_followers_user_idTousers?: followersOrderByRelationAggregateInput
     highlights?: highlightsOrderByRelationAggregateInput
     messages?: messagesOrderByRelationAggregateInput
+    profile_data?: profile_dataOrderByRelationAggregateInput
     stories?: storiesOrderByRelationAggregateInput
   }
 
@@ -9972,12 +12429,13 @@ export namespace Prisma {
     birth_date?: DateTimeFilter<"users"> | Date | string
     password?: StringFilter<"users"> | string
     is_admin?: BoolFilter<"users"> | boolean
-    description?: StringNullableFilter<"users"> | string | null
-    prestige_point?: BigIntFilter<"users"> | bigint | number
     actions?: ActionsListRelationFilter
     chat_members?: Chat_membersListRelationFilter
+    followers_followers_followed_idTousers?: FollowersListRelationFilter
+    followers_followers_user_idTousers?: FollowersListRelationFilter
     highlights?: HighlightsListRelationFilter
     messages?: MessagesListRelationFilter
+    profile_data?: Profile_dataListRelationFilter
     stories?: StoriesListRelationFilter
   }, "id" | "username" | "email">
 
@@ -9987,8 +12445,6 @@ export namespace Prisma {
     birth_date?: SortOrder
     password?: SortOrder
     is_admin?: SortOrder
-    description?: SortOrderInput | SortOrder
-    prestige_point?: SortOrder
     email?: SortOrder
     _count?: usersCountOrderByAggregateInput
     _avg?: usersAvgOrderByAggregateInput
@@ -10006,9 +12462,110 @@ export namespace Prisma {
     birth_date?: DateTimeWithAggregatesFilter<"users"> | Date | string
     password?: StringWithAggregatesFilter<"users"> | string
     is_admin?: BoolWithAggregatesFilter<"users"> | boolean
-    description?: StringNullableWithAggregatesFilter<"users"> | string | null
-    prestige_point?: BigIntWithAggregatesFilter<"users"> | bigint | number
     email?: StringWithAggregatesFilter<"users"> | string
+  }
+
+  export type followersWhereInput = {
+    AND?: followersWhereInput | followersWhereInput[]
+    OR?: followersWhereInput[]
+    NOT?: followersWhereInput | followersWhereInput[]
+    user_id?: BigIntFilter<"followers"> | bigint | number
+    followed_id?: BigIntFilter<"followers"> | bigint | number
+    users_followers_followed_idTousers?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    users_followers_user_idTousers?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }
+
+  export type followersOrderByWithRelationInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+    users_followers_followed_idTousers?: usersOrderByWithRelationInput
+    users_followers_user_idTousers?: usersOrderByWithRelationInput
+  }
+
+  export type followersWhereUniqueInput = Prisma.AtLeast<{
+    user_id_followed_id?: followersUser_idFollowed_idCompoundUniqueInput
+    AND?: followersWhereInput | followersWhereInput[]
+    OR?: followersWhereInput[]
+    NOT?: followersWhereInput | followersWhereInput[]
+    user_id?: BigIntFilter<"followers"> | bigint | number
+    followed_id?: BigIntFilter<"followers"> | bigint | number
+    users_followers_followed_idTousers?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    users_followers_user_idTousers?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }, "user_id_followed_id">
+
+  export type followersOrderByWithAggregationInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+    _count?: followersCountOrderByAggregateInput
+    _avg?: followersAvgOrderByAggregateInput
+    _max?: followersMaxOrderByAggregateInput
+    _min?: followersMinOrderByAggregateInput
+    _sum?: followersSumOrderByAggregateInput
+  }
+
+  export type followersScalarWhereWithAggregatesInput = {
+    AND?: followersScalarWhereWithAggregatesInput | followersScalarWhereWithAggregatesInput[]
+    OR?: followersScalarWhereWithAggregatesInput[]
+    NOT?: followersScalarWhereWithAggregatesInput | followersScalarWhereWithAggregatesInput[]
+    user_id?: BigIntWithAggregatesFilter<"followers"> | bigint | number
+    followed_id?: BigIntWithAggregatesFilter<"followers"> | bigint | number
+  }
+
+  export type profile_dataWhereInput = {
+    AND?: profile_dataWhereInput | profile_dataWhereInput[]
+    OR?: profile_dataWhereInput[]
+    NOT?: profile_dataWhereInput | profile_dataWhereInput[]
+    id?: BigIntFilter<"profile_data"> | bigint | number
+    user_id?: BigIntFilter<"profile_data"> | bigint | number
+    description?: StringNullableFilter<"profile_data"> | string | null
+    prestige_point?: BigIntFilter<"profile_data"> | bigint | number
+    pfp?: StringNullableFilter<"profile_data"> | string | null
+    users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }
+
+  export type profile_dataOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    description?: SortOrderInput | SortOrder
+    prestige_point?: SortOrder
+    pfp?: SortOrderInput | SortOrder
+    users?: usersOrderByWithRelationInput
+  }
+
+  export type profile_dataWhereUniqueInput = Prisma.AtLeast<{
+    id?: bigint | number
+    AND?: profile_dataWhereInput | profile_dataWhereInput[]
+    OR?: profile_dataWhereInput[]
+    NOT?: profile_dataWhereInput | profile_dataWhereInput[]
+    user_id?: BigIntFilter<"profile_data"> | bigint | number
+    description?: StringNullableFilter<"profile_data"> | string | null
+    prestige_point?: BigIntFilter<"profile_data"> | bigint | number
+    pfp?: StringNullableFilter<"profile_data"> | string | null
+    users?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }, "id">
+
+  export type profile_dataOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    description?: SortOrderInput | SortOrder
+    prestige_point?: SortOrder
+    pfp?: SortOrderInput | SortOrder
+    _count?: profile_dataCountOrderByAggregateInput
+    _avg?: profile_dataAvgOrderByAggregateInput
+    _max?: profile_dataMaxOrderByAggregateInput
+    _min?: profile_dataMinOrderByAggregateInput
+    _sum?: profile_dataSumOrderByAggregateInput
+  }
+
+  export type profile_dataScalarWhereWithAggregatesInput = {
+    AND?: profile_dataScalarWhereWithAggregatesInput | profile_dataScalarWhereWithAggregatesInput[]
+    OR?: profile_dataScalarWhereWithAggregatesInput[]
+    NOT?: profile_dataScalarWhereWithAggregatesInput | profile_dataScalarWhereWithAggregatesInput[]
+    id?: BigIntWithAggregatesFilter<"profile_data"> | bigint | number
+    user_id?: BigIntWithAggregatesFilter<"profile_data"> | bigint | number
+    description?: StringNullableWithAggregatesFilter<"profile_data"> | string | null
+    prestige_point?: BigIntWithAggregatesFilter<"profile_data"> | bigint | number
+    pfp?: StringNullableWithAggregatesFilter<"profile_data"> | string | null
   }
 
   export type actionsCreateInput = {
@@ -10327,13 +12884,14 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsCreateNestedManyWithoutUsersInput
     messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
     stories?: storiesCreateNestedManyWithoutUsersInput
   }
 
@@ -10343,13 +12901,14 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
     messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
     stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
   }
 
@@ -10359,13 +12918,14 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUpdateManyWithoutUsersNestedInput
     messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
     stories?: storiesUpdateManyWithoutUsersNestedInput
   }
 
@@ -10375,13 +12935,14 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
     messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
     stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
   }
 
@@ -10391,8 +12952,6 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
   }
 
@@ -10402,8 +12961,6 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
   }
 
@@ -10413,9 +12970,96 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type followersCreateInput = {
+    users_followers_followed_idTousers: usersCreateNestedOneWithoutFollowers_followers_followed_idTousersInput
+    users_followers_user_idTousers: usersCreateNestedOneWithoutFollowers_followers_user_idTousersInput
+  }
+
+  export type followersUncheckedCreateInput = {
+    user_id: bigint | number
+    followed_id: bigint | number
+  }
+
+  export type followersUpdateInput = {
+    users_followers_followed_idTousers?: usersUpdateOneRequiredWithoutFollowers_followers_followed_idTousersNestedInput
+    users_followers_user_idTousers?: usersUpdateOneRequiredWithoutFollowers_followers_user_idTousersNestedInput
+  }
+
+  export type followersUncheckedUpdateInput = {
+    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    followed_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type followersCreateManyInput = {
+    user_id: bigint | number
+    followed_id: bigint | number
+  }
+
+  export type followersUpdateManyMutationInput = {
+
+  }
+
+  export type followersUncheckedUpdateManyInput = {
+    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    followed_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type profile_dataCreateInput = {
+    id?: bigint | number
+    description?: string | null
+    prestige_point?: bigint | number
+    pfp?: string | null
+    users: usersCreateNestedOneWithoutProfile_dataInput
+  }
+
+  export type profile_dataUncheckedCreateInput = {
+    id?: bigint | number
+    user_id: bigint | number
+    description?: string | null
+    prestige_point?: bigint | number
+    pfp?: string | null
+  }
+
+  export type profile_dataUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
     description?: NullableStringFieldUpdateOperationsInput | string | null
     prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
-    email?: StringFieldUpdateOperationsInput | string
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
+    users?: usersUpdateOneRequiredWithoutProfile_dataNestedInput
+  }
+
+  export type profile_dataUncheckedUpdateInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type profile_dataCreateManyInput = {
+    id?: bigint | number
+    user_id: bigint | number
+    description?: string | null
+    prestige_point?: bigint | number
+    pfp?: string | null
+  }
+
+  export type profile_dataUpdateManyMutationInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type profile_dataUncheckedUpdateManyInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BigIntFilter<$PrismaModel = never> = {
@@ -10745,6 +13389,121 @@ export namespace Prisma {
     user_id?: SortOrder
   }
 
+  export type ActionsListRelationFilter = {
+    every?: actionsWhereInput
+    some?: actionsWhereInput
+    none?: actionsWhereInput
+  }
+
+  export type FollowersListRelationFilter = {
+    every?: followersWhereInput
+    some?: followersWhereInput
+    none?: followersWhereInput
+  }
+
+  export type HighlightsListRelationFilter = {
+    every?: highlightsWhereInput
+    some?: highlightsWhereInput
+    none?: highlightsWhereInput
+  }
+
+  export type Profile_dataListRelationFilter = {
+    every?: profile_dataWhereInput
+    some?: profile_dataWhereInput
+    none?: profile_dataWhereInput
+  }
+
+  export type StoriesListRelationFilter = {
+    every?: storiesWhereInput
+    some?: storiesWhereInput
+    none?: storiesWhereInput
+  }
+
+  export type actionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type followersOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type highlightsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type profile_dataOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type storiesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type usersCountOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    birth_date?: SortOrder
+    password?: SortOrder
+    is_admin?: SortOrder
+    email?: SortOrder
+  }
+
+  export type usersAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type usersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    birth_date?: SortOrder
+    password?: SortOrder
+    is_admin?: SortOrder
+    email?: SortOrder
+  }
+
+  export type usersMinOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    birth_date?: SortOrder
+    password?: SortOrder
+    is_admin?: SortOrder
+    email?: SortOrder
+  }
+
+  export type usersSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type followersUser_idFollowed_idCompoundUniqueInput = {
+    user_id: bigint | number
+    followed_id: bigint | number
+  }
+
+  export type followersCountOrderByAggregateInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+  }
+
+  export type followersAvgOrderByAggregateInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+  }
+
+  export type followersMaxOrderByAggregateInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+  }
+
+  export type followersMinOrderByAggregateInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+  }
+
+  export type followersSumOrderByAggregateInput = {
+    user_id?: SortOrder
+    followed_id?: SortOrder
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -10760,81 +13519,44 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type ActionsListRelationFilter = {
-    every?: actionsWhereInput
-    some?: actionsWhereInput
-    none?: actionsWhereInput
-  }
-
-  export type HighlightsListRelationFilter = {
-    every?: highlightsWhereInput
-    some?: highlightsWhereInput
-    none?: highlightsWhereInput
-  }
-
-  export type StoriesListRelationFilter = {
-    every?: storiesWhereInput
-    some?: storiesWhereInput
-    none?: storiesWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
-  export type actionsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type highlightsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type storiesOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type usersCountOrderByAggregateInput = {
+  export type profile_dataCountOrderByAggregateInput = {
     id?: SortOrder
-    username?: SortOrder
-    birth_date?: SortOrder
-    password?: SortOrder
-    is_admin?: SortOrder
+    user_id?: SortOrder
     description?: SortOrder
     prestige_point?: SortOrder
-    email?: SortOrder
+    pfp?: SortOrder
   }
 
-  export type usersAvgOrderByAggregateInput = {
+  export type profile_dataAvgOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
     prestige_point?: SortOrder
   }
 
-  export type usersMaxOrderByAggregateInput = {
+  export type profile_dataMaxOrderByAggregateInput = {
     id?: SortOrder
-    username?: SortOrder
-    birth_date?: SortOrder
-    password?: SortOrder
-    is_admin?: SortOrder
+    user_id?: SortOrder
     description?: SortOrder
     prestige_point?: SortOrder
-    email?: SortOrder
+    pfp?: SortOrder
   }
 
-  export type usersMinOrderByAggregateInput = {
+  export type profile_dataMinOrderByAggregateInput = {
     id?: SortOrder
-    username?: SortOrder
-    birth_date?: SortOrder
-    password?: SortOrder
-    is_admin?: SortOrder
+    user_id?: SortOrder
     description?: SortOrder
     prestige_point?: SortOrder
-    email?: SortOrder
+    pfp?: SortOrder
   }
 
-  export type usersSumOrderByAggregateInput = {
+  export type profile_dataSumOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
     prestige_point?: SortOrder
   }
 
@@ -11072,6 +13794,20 @@ export namespace Prisma {
     connect?: chat_membersWhereUniqueInput | chat_membersWhereUniqueInput[]
   }
 
+  export type followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_followed_idTousersInput, followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput> | followersCreateWithoutUsers_followers_followed_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput | followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_followed_idTousersInputEnvelope
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+  }
+
+  export type followersCreateNestedManyWithoutUsers_followers_user_idTousersInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_user_idTousersInput, followersUncheckedCreateWithoutUsers_followers_user_idTousersInput> | followersCreateWithoutUsers_followers_user_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_user_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_user_idTousersInput | followersCreateOrConnectWithoutUsers_followers_user_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_user_idTousersInputEnvelope
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+  }
+
   export type highlightsCreateNestedManyWithoutUsersInput = {
     create?: XOR<highlightsCreateWithoutUsersInput, highlightsUncheckedCreateWithoutUsersInput> | highlightsCreateWithoutUsersInput[] | highlightsUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: highlightsCreateOrConnectWithoutUsersInput | highlightsCreateOrConnectWithoutUsersInput[]
@@ -11084,6 +13820,13 @@ export namespace Prisma {
     connectOrCreate?: messagesCreateOrConnectWithoutUsersInput | messagesCreateOrConnectWithoutUsersInput[]
     createMany?: messagesCreateManyUsersInputEnvelope
     connect?: messagesWhereUniqueInput | messagesWhereUniqueInput[]
+  }
+
+  export type profile_dataCreateNestedManyWithoutUsersInput = {
+    create?: XOR<profile_dataCreateWithoutUsersInput, profile_dataUncheckedCreateWithoutUsersInput> | profile_dataCreateWithoutUsersInput[] | profile_dataUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: profile_dataCreateOrConnectWithoutUsersInput | profile_dataCreateOrConnectWithoutUsersInput[]
+    createMany?: profile_dataCreateManyUsersInputEnvelope
+    connect?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
   }
 
   export type storiesCreateNestedManyWithoutUsersInput = {
@@ -11107,6 +13850,20 @@ export namespace Prisma {
     connect?: chat_membersWhereUniqueInput | chat_membersWhereUniqueInput[]
   }
 
+  export type followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_followed_idTousersInput, followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput> | followersCreateWithoutUsers_followers_followed_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput | followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_followed_idTousersInputEnvelope
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+  }
+
+  export type followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_user_idTousersInput, followersUncheckedCreateWithoutUsers_followers_user_idTousersInput> | followersCreateWithoutUsers_followers_user_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_user_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_user_idTousersInput | followersCreateOrConnectWithoutUsers_followers_user_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_user_idTousersInputEnvelope
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+  }
+
   export type highlightsUncheckedCreateNestedManyWithoutUsersInput = {
     create?: XOR<highlightsCreateWithoutUsersInput, highlightsUncheckedCreateWithoutUsersInput> | highlightsCreateWithoutUsersInput[] | highlightsUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: highlightsCreateOrConnectWithoutUsersInput | highlightsCreateOrConnectWithoutUsersInput[]
@@ -11121,15 +13878,18 @@ export namespace Prisma {
     connect?: messagesWhereUniqueInput | messagesWhereUniqueInput[]
   }
 
+  export type profile_dataUncheckedCreateNestedManyWithoutUsersInput = {
+    create?: XOR<profile_dataCreateWithoutUsersInput, profile_dataUncheckedCreateWithoutUsersInput> | profile_dataCreateWithoutUsersInput[] | profile_dataUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: profile_dataCreateOrConnectWithoutUsersInput | profile_dataCreateOrConnectWithoutUsersInput[]
+    createMany?: profile_dataCreateManyUsersInputEnvelope
+    connect?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+  }
+
   export type storiesUncheckedCreateNestedManyWithoutUsersInput = {
     create?: XOR<storiesCreateWithoutUsersInput, storiesUncheckedCreateWithoutUsersInput> | storiesCreateWithoutUsersInput[] | storiesUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: storiesCreateOrConnectWithoutUsersInput | storiesCreateOrConnectWithoutUsersInput[]
     createMany?: storiesCreateManyUsersInputEnvelope
     connect?: storiesWhereUniqueInput | storiesWhereUniqueInput[]
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type actionsUpdateManyWithoutUsersNestedInput = {
@@ -11160,6 +13920,34 @@ export namespace Prisma {
     deleteMany?: chat_membersScalarWhereInput | chat_membersScalarWhereInput[]
   }
 
+  export type followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_followed_idTousersInput, followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput> | followersCreateWithoutUsers_followers_followed_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput | followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput[]
+    upsert?: followersUpsertWithWhereUniqueWithoutUsers_followers_followed_idTousersInput | followersUpsertWithWhereUniqueWithoutUsers_followers_followed_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_followed_idTousersInputEnvelope
+    set?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    disconnect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    delete?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    update?: followersUpdateWithWhereUniqueWithoutUsers_followers_followed_idTousersInput | followersUpdateWithWhereUniqueWithoutUsers_followers_followed_idTousersInput[]
+    updateMany?: followersUpdateManyWithWhereWithoutUsers_followers_followed_idTousersInput | followersUpdateManyWithWhereWithoutUsers_followers_followed_idTousersInput[]
+    deleteMany?: followersScalarWhereInput | followersScalarWhereInput[]
+  }
+
+  export type followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_user_idTousersInput, followersUncheckedCreateWithoutUsers_followers_user_idTousersInput> | followersCreateWithoutUsers_followers_user_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_user_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_user_idTousersInput | followersCreateOrConnectWithoutUsers_followers_user_idTousersInput[]
+    upsert?: followersUpsertWithWhereUniqueWithoutUsers_followers_user_idTousersInput | followersUpsertWithWhereUniqueWithoutUsers_followers_user_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_user_idTousersInputEnvelope
+    set?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    disconnect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    delete?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    update?: followersUpdateWithWhereUniqueWithoutUsers_followers_user_idTousersInput | followersUpdateWithWhereUniqueWithoutUsers_followers_user_idTousersInput[]
+    updateMany?: followersUpdateManyWithWhereWithoutUsers_followers_user_idTousersInput | followersUpdateManyWithWhereWithoutUsers_followers_user_idTousersInput[]
+    deleteMany?: followersScalarWhereInput | followersScalarWhereInput[]
+  }
+
   export type highlightsUpdateManyWithoutUsersNestedInput = {
     create?: XOR<highlightsCreateWithoutUsersInput, highlightsUncheckedCreateWithoutUsersInput> | highlightsCreateWithoutUsersInput[] | highlightsUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: highlightsCreateOrConnectWithoutUsersInput | highlightsCreateOrConnectWithoutUsersInput[]
@@ -11186,6 +13974,20 @@ export namespace Prisma {
     update?: messagesUpdateWithWhereUniqueWithoutUsersInput | messagesUpdateWithWhereUniqueWithoutUsersInput[]
     updateMany?: messagesUpdateManyWithWhereWithoutUsersInput | messagesUpdateManyWithWhereWithoutUsersInput[]
     deleteMany?: messagesScalarWhereInput | messagesScalarWhereInput[]
+  }
+
+  export type profile_dataUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<profile_dataCreateWithoutUsersInput, profile_dataUncheckedCreateWithoutUsersInput> | profile_dataCreateWithoutUsersInput[] | profile_dataUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: profile_dataCreateOrConnectWithoutUsersInput | profile_dataCreateOrConnectWithoutUsersInput[]
+    upsert?: profile_dataUpsertWithWhereUniqueWithoutUsersInput | profile_dataUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: profile_dataCreateManyUsersInputEnvelope
+    set?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    disconnect?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    delete?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    connect?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    update?: profile_dataUpdateWithWhereUniqueWithoutUsersInput | profile_dataUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: profile_dataUpdateManyWithWhereWithoutUsersInput | profile_dataUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: profile_dataScalarWhereInput | profile_dataScalarWhereInput[]
   }
 
   export type storiesUpdateManyWithoutUsersNestedInput = {
@@ -11230,6 +14032,34 @@ export namespace Prisma {
     deleteMany?: chat_membersScalarWhereInput | chat_membersScalarWhereInput[]
   }
 
+  export type followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_followed_idTousersInput, followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput> | followersCreateWithoutUsers_followers_followed_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput | followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput[]
+    upsert?: followersUpsertWithWhereUniqueWithoutUsers_followers_followed_idTousersInput | followersUpsertWithWhereUniqueWithoutUsers_followers_followed_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_followed_idTousersInputEnvelope
+    set?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    disconnect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    delete?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    update?: followersUpdateWithWhereUniqueWithoutUsers_followers_followed_idTousersInput | followersUpdateWithWhereUniqueWithoutUsers_followers_followed_idTousersInput[]
+    updateMany?: followersUpdateManyWithWhereWithoutUsers_followers_followed_idTousersInput | followersUpdateManyWithWhereWithoutUsers_followers_followed_idTousersInput[]
+    deleteMany?: followersScalarWhereInput | followersScalarWhereInput[]
+  }
+
+  export type followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput = {
+    create?: XOR<followersCreateWithoutUsers_followers_user_idTousersInput, followersUncheckedCreateWithoutUsers_followers_user_idTousersInput> | followersCreateWithoutUsers_followers_user_idTousersInput[] | followersUncheckedCreateWithoutUsers_followers_user_idTousersInput[]
+    connectOrCreate?: followersCreateOrConnectWithoutUsers_followers_user_idTousersInput | followersCreateOrConnectWithoutUsers_followers_user_idTousersInput[]
+    upsert?: followersUpsertWithWhereUniqueWithoutUsers_followers_user_idTousersInput | followersUpsertWithWhereUniqueWithoutUsers_followers_user_idTousersInput[]
+    createMany?: followersCreateManyUsers_followers_user_idTousersInputEnvelope
+    set?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    disconnect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    delete?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    connect?: followersWhereUniqueInput | followersWhereUniqueInput[]
+    update?: followersUpdateWithWhereUniqueWithoutUsers_followers_user_idTousersInput | followersUpdateWithWhereUniqueWithoutUsers_followers_user_idTousersInput[]
+    updateMany?: followersUpdateManyWithWhereWithoutUsers_followers_user_idTousersInput | followersUpdateManyWithWhereWithoutUsers_followers_user_idTousersInput[]
+    deleteMany?: followersScalarWhereInput | followersScalarWhereInput[]
+  }
+
   export type highlightsUncheckedUpdateManyWithoutUsersNestedInput = {
     create?: XOR<highlightsCreateWithoutUsersInput, highlightsUncheckedCreateWithoutUsersInput> | highlightsCreateWithoutUsersInput[] | highlightsUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: highlightsCreateOrConnectWithoutUsersInput | highlightsCreateOrConnectWithoutUsersInput[]
@@ -11258,6 +14088,20 @@ export namespace Prisma {
     deleteMany?: messagesScalarWhereInput | messagesScalarWhereInput[]
   }
 
+  export type profile_dataUncheckedUpdateManyWithoutUsersNestedInput = {
+    create?: XOR<profile_dataCreateWithoutUsersInput, profile_dataUncheckedCreateWithoutUsersInput> | profile_dataCreateWithoutUsersInput[] | profile_dataUncheckedCreateWithoutUsersInput[]
+    connectOrCreate?: profile_dataCreateOrConnectWithoutUsersInput | profile_dataCreateOrConnectWithoutUsersInput[]
+    upsert?: profile_dataUpsertWithWhereUniqueWithoutUsersInput | profile_dataUpsertWithWhereUniqueWithoutUsersInput[]
+    createMany?: profile_dataCreateManyUsersInputEnvelope
+    set?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    disconnect?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    delete?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    connect?: profile_dataWhereUniqueInput | profile_dataWhereUniqueInput[]
+    update?: profile_dataUpdateWithWhereUniqueWithoutUsersInput | profile_dataUpdateWithWhereUniqueWithoutUsersInput[]
+    updateMany?: profile_dataUpdateManyWithWhereWithoutUsersInput | profile_dataUpdateManyWithWhereWithoutUsersInput[]
+    deleteMany?: profile_dataScalarWhereInput | profile_dataScalarWhereInput[]
+  }
+
   export type storiesUncheckedUpdateManyWithoutUsersNestedInput = {
     create?: XOR<storiesCreateWithoutUsersInput, storiesUncheckedCreateWithoutUsersInput> | storiesCreateWithoutUsersInput[] | storiesUncheckedCreateWithoutUsersInput[]
     connectOrCreate?: storiesCreateOrConnectWithoutUsersInput | storiesCreateOrConnectWithoutUsersInput[]
@@ -11270,6 +14114,52 @@ export namespace Prisma {
     update?: storiesUpdateWithWhereUniqueWithoutUsersInput | storiesUpdateWithWhereUniqueWithoutUsersInput[]
     updateMany?: storiesUpdateManyWithWhereWithoutUsersInput | storiesUpdateManyWithWhereWithoutUsersInput[]
     deleteMany?: storiesScalarWhereInput | storiesScalarWhereInput[]
+  }
+
+  export type usersCreateNestedOneWithoutFollowers_followers_followed_idTousersInput = {
+    create?: XOR<usersCreateWithoutFollowers_followers_followed_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_followed_idTousersInput>
+    connectOrCreate?: usersCreateOrConnectWithoutFollowers_followers_followed_idTousersInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type usersCreateNestedOneWithoutFollowers_followers_user_idTousersInput = {
+    create?: XOR<usersCreateWithoutFollowers_followers_user_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_user_idTousersInput>
+    connectOrCreate?: usersCreateOrConnectWithoutFollowers_followers_user_idTousersInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type usersUpdateOneRequiredWithoutFollowers_followers_followed_idTousersNestedInput = {
+    create?: XOR<usersCreateWithoutFollowers_followers_followed_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_followed_idTousersInput>
+    connectOrCreate?: usersCreateOrConnectWithoutFollowers_followers_followed_idTousersInput
+    upsert?: usersUpsertWithoutFollowers_followers_followed_idTousersInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutFollowers_followers_followed_idTousersInput, usersUpdateWithoutFollowers_followers_followed_idTousersInput>, usersUncheckedUpdateWithoutFollowers_followers_followed_idTousersInput>
+  }
+
+  export type usersUpdateOneRequiredWithoutFollowers_followers_user_idTousersNestedInput = {
+    create?: XOR<usersCreateWithoutFollowers_followers_user_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_user_idTousersInput>
+    connectOrCreate?: usersCreateOrConnectWithoutFollowers_followers_user_idTousersInput
+    upsert?: usersUpsertWithoutFollowers_followers_user_idTousersInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutFollowers_followers_user_idTousersInput, usersUpdateWithoutFollowers_followers_user_idTousersInput>, usersUncheckedUpdateWithoutFollowers_followers_user_idTousersInput>
+  }
+
+  export type usersCreateNestedOneWithoutProfile_dataInput = {
+    create?: XOR<usersCreateWithoutProfile_dataInput, usersUncheckedCreateWithoutProfile_dataInput>
+    connectOrCreate?: usersCreateOrConnectWithoutProfile_dataInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type usersUpdateOneRequiredWithoutProfile_dataNestedInput = {
+    create?: XOR<usersCreateWithoutProfile_dataInput, usersUncheckedCreateWithoutProfile_dataInput>
+    connectOrCreate?: usersCreateOrConnectWithoutProfile_dataInput
+    upsert?: usersUpsertWithoutProfile_dataInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutProfile_dataInput, usersUpdateWithoutProfile_dataInput>, usersUncheckedUpdateWithoutProfile_dataInput>
   }
 
   export type NestedBigIntFilter<$PrismaModel = never> = {
@@ -11438,12 +14328,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsCreateNestedManyWithoutUsersInput
     messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
     stories?: storiesCreateNestedManyWithoutUsersInput
   }
 
@@ -11453,12 +14344,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
     messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
     stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
   }
 
@@ -11484,12 +14376,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUpdateManyWithoutUsersNestedInput
     messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
     stories?: storiesUpdateManyWithoutUsersNestedInput
   }
 
@@ -11499,12 +14392,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
     messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
     stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
   }
 
@@ -11533,12 +14427,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsCreateNestedManyWithoutUsersInput
     messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
     stories?: storiesCreateNestedManyWithoutUsersInput
   }
 
@@ -11548,12 +14443,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
     messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
     stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
   }
 
@@ -11604,12 +14500,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUpdateManyWithoutUsersNestedInput
     messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
     stories?: storiesUpdateManyWithoutUsersNestedInput
   }
 
@@ -11619,12 +14516,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
     messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
     stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
   }
 
@@ -11730,12 +14628,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
     messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
     stories?: storiesCreateNestedManyWithoutUsersInput
   }
 
@@ -11745,12 +14644,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
     messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
     stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
   }
 
@@ -11776,12 +14676,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
     stories?: storiesUpdateManyWithoutUsersNestedInput
   }
 
@@ -11791,12 +14692,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
     stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
   }
 
@@ -11825,12 +14727,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
     stories?: storiesCreateNestedManyWithoutUsersInput
   }
 
@@ -11840,12 +14743,13 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
     stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
   }
 
@@ -11896,12 +14800,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
     stories?: storiesUpdateManyWithoutUsersNestedInput
   }
 
@@ -11911,12 +14816,13 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
     stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
   }
 
@@ -11926,13 +14832,14 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsCreateNestedManyWithoutUsersInput
     messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
   }
 
   export type usersUncheckedCreateWithoutStoriesInput = {
@@ -11941,13 +14848,14 @@ export namespace Prisma {
     birth_date: Date | string
     password: string
     is_admin?: boolean
-    description?: string | null
-    prestige_point?: bigint | number
     email: string
     actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
     chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
     highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
     messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
   }
 
   export type usersCreateOrConnectWithoutStoriesInput = {
@@ -11972,13 +14880,14 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUpdateManyWithoutUsersNestedInput
     messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
   }
 
   export type usersUncheckedUpdateWithoutStoriesInput = {
@@ -11987,13 +14896,14 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     password?: StringFieldUpdateOperationsInput | string
     is_admin?: BoolFieldUpdateOperationsInput | boolean
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
     email?: StringFieldUpdateOperationsInput | string
     actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
     chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
     highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
     messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
   }
 
   export type actionsCreateWithoutUsersInput = {
@@ -12037,6 +14947,42 @@ export namespace Prisma {
 
   export type chat_membersCreateManyUsersInputEnvelope = {
     data: chat_membersCreateManyUsersInput | chat_membersCreateManyUsersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type followersCreateWithoutUsers_followers_followed_idTousersInput = {
+    users_followers_user_idTousers: usersCreateNestedOneWithoutFollowers_followers_user_idTousersInput
+  }
+
+  export type followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput = {
+    user_id: bigint | number
+  }
+
+  export type followersCreateOrConnectWithoutUsers_followers_followed_idTousersInput = {
+    where: followersWhereUniqueInput
+    create: XOR<followersCreateWithoutUsers_followers_followed_idTousersInput, followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput>
+  }
+
+  export type followersCreateManyUsers_followers_followed_idTousersInputEnvelope = {
+    data: followersCreateManyUsers_followers_followed_idTousersInput | followersCreateManyUsers_followers_followed_idTousersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type followersCreateWithoutUsers_followers_user_idTousersInput = {
+    users_followers_followed_idTousers: usersCreateNestedOneWithoutFollowers_followers_followed_idTousersInput
+  }
+
+  export type followersUncheckedCreateWithoutUsers_followers_user_idTousersInput = {
+    followed_id: bigint | number
+  }
+
+  export type followersCreateOrConnectWithoutUsers_followers_user_idTousersInput = {
+    where: followersWhereUniqueInput
+    create: XOR<followersCreateWithoutUsers_followers_user_idTousersInput, followersUncheckedCreateWithoutUsers_followers_user_idTousersInput>
+  }
+
+  export type followersCreateManyUsers_followers_user_idTousersInputEnvelope = {
+    data: followersCreateManyUsers_followers_user_idTousersInput | followersCreateManyUsers_followers_user_idTousersInput[]
     skipDuplicates?: boolean
   }
 
@@ -12085,6 +15031,30 @@ export namespace Prisma {
 
   export type messagesCreateManyUsersInputEnvelope = {
     data: messagesCreateManyUsersInput | messagesCreateManyUsersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type profile_dataCreateWithoutUsersInput = {
+    id?: bigint | number
+    description?: string | null
+    prestige_point?: bigint | number
+    pfp?: string | null
+  }
+
+  export type profile_dataUncheckedCreateWithoutUsersInput = {
+    id?: bigint | number
+    description?: string | null
+    prestige_point?: bigint | number
+    pfp?: string | null
+  }
+
+  export type profile_dataCreateOrConnectWithoutUsersInput = {
+    where: profile_dataWhereUniqueInput
+    create: XOR<profile_dataCreateWithoutUsersInput, profile_dataUncheckedCreateWithoutUsersInput>
+  }
+
+  export type profile_dataCreateManyUsersInputEnvelope = {
+    data: profile_dataCreateManyUsersInput | profile_dataCreateManyUsersInput[]
     skipDuplicates?: boolean
   }
 
@@ -12156,6 +15126,46 @@ export namespace Prisma {
     data: XOR<chat_membersUpdateManyMutationInput, chat_membersUncheckedUpdateManyWithoutUsersInput>
   }
 
+  export type followersUpsertWithWhereUniqueWithoutUsers_followers_followed_idTousersInput = {
+    where: followersWhereUniqueInput
+    update: XOR<followersUpdateWithoutUsers_followers_followed_idTousersInput, followersUncheckedUpdateWithoutUsers_followers_followed_idTousersInput>
+    create: XOR<followersCreateWithoutUsers_followers_followed_idTousersInput, followersUncheckedCreateWithoutUsers_followers_followed_idTousersInput>
+  }
+
+  export type followersUpdateWithWhereUniqueWithoutUsers_followers_followed_idTousersInput = {
+    where: followersWhereUniqueInput
+    data: XOR<followersUpdateWithoutUsers_followers_followed_idTousersInput, followersUncheckedUpdateWithoutUsers_followers_followed_idTousersInput>
+  }
+
+  export type followersUpdateManyWithWhereWithoutUsers_followers_followed_idTousersInput = {
+    where: followersScalarWhereInput
+    data: XOR<followersUpdateManyMutationInput, followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersInput>
+  }
+
+  export type followersScalarWhereInput = {
+    AND?: followersScalarWhereInput | followersScalarWhereInput[]
+    OR?: followersScalarWhereInput[]
+    NOT?: followersScalarWhereInput | followersScalarWhereInput[]
+    user_id?: BigIntFilter<"followers"> | bigint | number
+    followed_id?: BigIntFilter<"followers"> | bigint | number
+  }
+
+  export type followersUpsertWithWhereUniqueWithoutUsers_followers_user_idTousersInput = {
+    where: followersWhereUniqueInput
+    update: XOR<followersUpdateWithoutUsers_followers_user_idTousersInput, followersUncheckedUpdateWithoutUsers_followers_user_idTousersInput>
+    create: XOR<followersCreateWithoutUsers_followers_user_idTousersInput, followersUncheckedCreateWithoutUsers_followers_user_idTousersInput>
+  }
+
+  export type followersUpdateWithWhereUniqueWithoutUsers_followers_user_idTousersInput = {
+    where: followersWhereUniqueInput
+    data: XOR<followersUpdateWithoutUsers_followers_user_idTousersInput, followersUncheckedUpdateWithoutUsers_followers_user_idTousersInput>
+  }
+
+  export type followersUpdateManyWithWhereWithoutUsers_followers_user_idTousersInput = {
+    where: followersScalarWhereInput
+    data: XOR<followersUpdateManyMutationInput, followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersInput>
+  }
+
   export type highlightsUpsertWithWhereUniqueWithoutUsersInput = {
     where: highlightsWhereUniqueInput
     update: XOR<highlightsUpdateWithoutUsersInput, highlightsUncheckedUpdateWithoutUsersInput>
@@ -12198,6 +15208,33 @@ export namespace Prisma {
     data: XOR<messagesUpdateManyMutationInput, messagesUncheckedUpdateManyWithoutUsersInput>
   }
 
+  export type profile_dataUpsertWithWhereUniqueWithoutUsersInput = {
+    where: profile_dataWhereUniqueInput
+    update: XOR<profile_dataUpdateWithoutUsersInput, profile_dataUncheckedUpdateWithoutUsersInput>
+    create: XOR<profile_dataCreateWithoutUsersInput, profile_dataUncheckedCreateWithoutUsersInput>
+  }
+
+  export type profile_dataUpdateWithWhereUniqueWithoutUsersInput = {
+    where: profile_dataWhereUniqueInput
+    data: XOR<profile_dataUpdateWithoutUsersInput, profile_dataUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type profile_dataUpdateManyWithWhereWithoutUsersInput = {
+    where: profile_dataScalarWhereInput
+    data: XOR<profile_dataUpdateManyMutationInput, profile_dataUncheckedUpdateManyWithoutUsersInput>
+  }
+
+  export type profile_dataScalarWhereInput = {
+    AND?: profile_dataScalarWhereInput | profile_dataScalarWhereInput[]
+    OR?: profile_dataScalarWhereInput[]
+    NOT?: profile_dataScalarWhereInput | profile_dataScalarWhereInput[]
+    id?: BigIntFilter<"profile_data"> | bigint | number
+    user_id?: BigIntFilter<"profile_data"> | bigint | number
+    description?: StringNullableFilter<"profile_data"> | string | null
+    prestige_point?: BigIntFilter<"profile_data"> | bigint | number
+    pfp?: StringNullableFilter<"profile_data"> | string | null
+  }
+
   export type storiesUpsertWithWhereUniqueWithoutUsersInput = {
     where: storiesWhereUniqueInput
     update: XOR<storiesUpdateWithoutUsersInput, storiesUncheckedUpdateWithoutUsersInput>
@@ -12223,6 +15260,246 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"stories"> | Date | string
     content?: StringFilter<"stories"> | string
     expires_at?: DateTimeFilter<"stories"> | Date | string
+  }
+
+  export type usersCreateWithoutFollowers_followers_followed_idTousersInput = {
+    id?: bigint | number
+    username: string
+    birth_date: Date | string
+    password: string
+    is_admin?: boolean
+    email: string
+    actions?: actionsCreateNestedManyWithoutUsersInput
+    chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
+    highlights?: highlightsCreateNestedManyWithoutUsersInput
+    messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
+    stories?: storiesCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutFollowers_followers_followed_idTousersInput = {
+    id?: bigint | number
+    username: string
+    birth_date: Date | string
+    password: string
+    is_admin?: boolean
+    email: string
+    actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
+    chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
+    highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
+    messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
+    stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutFollowers_followers_followed_idTousersInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutFollowers_followers_followed_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_followed_idTousersInput>
+  }
+
+  export type usersCreateWithoutFollowers_followers_user_idTousersInput = {
+    id?: bigint | number
+    username: string
+    birth_date: Date | string
+    password: string
+    is_admin?: boolean
+    email: string
+    actions?: actionsCreateNestedManyWithoutUsersInput
+    chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    highlights?: highlightsCreateNestedManyWithoutUsersInput
+    messages?: messagesCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataCreateNestedManyWithoutUsersInput
+    stories?: storiesCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutFollowers_followers_user_idTousersInput = {
+    id?: bigint | number
+    username: string
+    birth_date: Date | string
+    password: string
+    is_admin?: boolean
+    email: string
+    actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
+    chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
+    messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    profile_data?: profile_dataUncheckedCreateNestedManyWithoutUsersInput
+    stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutFollowers_followers_user_idTousersInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutFollowers_followers_user_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_user_idTousersInput>
+  }
+
+  export type usersUpsertWithoutFollowers_followers_followed_idTousersInput = {
+    update: XOR<usersUpdateWithoutFollowers_followers_followed_idTousersInput, usersUncheckedUpdateWithoutFollowers_followers_followed_idTousersInput>
+    create: XOR<usersCreateWithoutFollowers_followers_followed_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_followed_idTousersInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutFollowers_followers_followed_idTousersInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutFollowers_followers_followed_idTousersInput, usersUncheckedUpdateWithoutFollowers_followers_followed_idTousersInput>
+  }
+
+  export type usersUpdateWithoutFollowers_followers_followed_idTousersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    username?: StringFieldUpdateOperationsInput | string
+    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: StringFieldUpdateOperationsInput | string
+    is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+    actions?: actionsUpdateManyWithoutUsersNestedInput
+    chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
+    highlights?: highlightsUpdateManyWithoutUsersNestedInput
+    messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
+    stories?: storiesUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutFollowers_followers_followed_idTousersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    username?: StringFieldUpdateOperationsInput | string
+    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: StringFieldUpdateOperationsInput | string
+    is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+    actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
+    chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
+    highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
+    messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
+    stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUpsertWithoutFollowers_followers_user_idTousersInput = {
+    update: XOR<usersUpdateWithoutFollowers_followers_user_idTousersInput, usersUncheckedUpdateWithoutFollowers_followers_user_idTousersInput>
+    create: XOR<usersCreateWithoutFollowers_followers_user_idTousersInput, usersUncheckedCreateWithoutFollowers_followers_user_idTousersInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutFollowers_followers_user_idTousersInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutFollowers_followers_user_idTousersInput, usersUncheckedUpdateWithoutFollowers_followers_user_idTousersInput>
+  }
+
+  export type usersUpdateWithoutFollowers_followers_user_idTousersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    username?: StringFieldUpdateOperationsInput | string
+    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: StringFieldUpdateOperationsInput | string
+    is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+    actions?: actionsUpdateManyWithoutUsersNestedInput
+    chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    highlights?: highlightsUpdateManyWithoutUsersNestedInput
+    messages?: messagesUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUpdateManyWithoutUsersNestedInput
+    stories?: storiesUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutFollowers_followers_user_idTousersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    username?: StringFieldUpdateOperationsInput | string
+    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: StringFieldUpdateOperationsInput | string
+    is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+    actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
+    chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
+    messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    profile_data?: profile_dataUncheckedUpdateManyWithoutUsersNestedInput
+    stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersCreateWithoutProfile_dataInput = {
+    id?: bigint | number
+    username: string
+    birth_date: Date | string
+    password: string
+    is_admin?: boolean
+    email: string
+    actions?: actionsCreateNestedManyWithoutUsersInput
+    chat_members?: chat_membersCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersCreateNestedManyWithoutUsers_followers_user_idTousersInput
+    highlights?: highlightsCreateNestedManyWithoutUsersInput
+    messages?: messagesCreateNestedManyWithoutUsersInput
+    stories?: storiesCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersUncheckedCreateWithoutProfile_dataInput = {
+    id?: bigint | number
+    username: string
+    birth_date: Date | string
+    password: string
+    is_admin?: boolean
+    email: string
+    actions?: actionsUncheckedCreateNestedManyWithoutUsersInput
+    chat_members?: chat_membersUncheckedCreateNestedManyWithoutUsersInput
+    followers_followers_followed_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_followed_idTousersInput
+    followers_followers_user_idTousers?: followersUncheckedCreateNestedManyWithoutUsers_followers_user_idTousersInput
+    highlights?: highlightsUncheckedCreateNestedManyWithoutUsersInput
+    messages?: messagesUncheckedCreateNestedManyWithoutUsersInput
+    stories?: storiesUncheckedCreateNestedManyWithoutUsersInput
+  }
+
+  export type usersCreateOrConnectWithoutProfile_dataInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutProfile_dataInput, usersUncheckedCreateWithoutProfile_dataInput>
+  }
+
+  export type usersUpsertWithoutProfile_dataInput = {
+    update: XOR<usersUpdateWithoutProfile_dataInput, usersUncheckedUpdateWithoutProfile_dataInput>
+    create: XOR<usersCreateWithoutProfile_dataInput, usersUncheckedCreateWithoutProfile_dataInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutProfile_dataInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutProfile_dataInput, usersUncheckedUpdateWithoutProfile_dataInput>
+  }
+
+  export type usersUpdateWithoutProfile_dataInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    username?: StringFieldUpdateOperationsInput | string
+    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: StringFieldUpdateOperationsInput | string
+    is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+    actions?: actionsUpdateManyWithoutUsersNestedInput
+    chat_members?: chat_membersUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUpdateManyWithoutUsers_followers_user_idTousersNestedInput
+    highlights?: highlightsUpdateManyWithoutUsersNestedInput
+    messages?: messagesUpdateManyWithoutUsersNestedInput
+    stories?: storiesUpdateManyWithoutUsersNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutProfile_dataInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    username?: StringFieldUpdateOperationsInput | string
+    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
+    password?: StringFieldUpdateOperationsInput | string
+    is_admin?: BoolFieldUpdateOperationsInput | boolean
+    email?: StringFieldUpdateOperationsInput | string
+    actions?: actionsUncheckedUpdateManyWithoutUsersNestedInput
+    chat_members?: chat_membersUncheckedUpdateManyWithoutUsersNestedInput
+    followers_followers_followed_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersNestedInput
+    followers_followers_user_idTousers?: followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersNestedInput
+    highlights?: highlightsUncheckedUpdateManyWithoutUsersNestedInput
+    messages?: messagesUncheckedUpdateManyWithoutUsersNestedInput
+    stories?: storiesUncheckedUpdateManyWithoutUsersNestedInput
   }
 
   export type chat_membersCreateManyChatsInput = {
@@ -12285,6 +15562,14 @@ export namespace Prisma {
     chat_id?: bigint | number
   }
 
+  export type followersCreateManyUsers_followers_followed_idTousersInput = {
+    user_id: bigint | number
+  }
+
+  export type followersCreateManyUsers_followers_user_idTousersInput = {
+    followed_id: bigint | number
+  }
+
   export type highlightsCreateManyUsersInput = {
     id?: bigint | number
     created_at: Date | string
@@ -12297,6 +15582,13 @@ export namespace Prisma {
     content: string
     created_at: Date | string
     is_read?: boolean
+  }
+
+  export type profile_dataCreateManyUsersInput = {
+    id?: bigint | number
+    description?: string | null
+    prestige_point?: bigint | number
+    pfp?: string | null
   }
 
   export type storiesCreateManyUsersInput = {
@@ -12342,6 +15634,30 @@ export namespace Prisma {
     chat_id?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
+  export type followersUpdateWithoutUsers_followers_followed_idTousersInput = {
+    users_followers_user_idTousers?: usersUpdateOneRequiredWithoutFollowers_followers_user_idTousersNestedInput
+  }
+
+  export type followersUncheckedUpdateWithoutUsers_followers_followed_idTousersInput = {
+    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type followersUncheckedUpdateManyWithoutUsers_followers_followed_idTousersInput = {
+    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type followersUpdateWithoutUsers_followers_user_idTousersInput = {
+    users_followers_followed_idTousers?: usersUpdateOneRequiredWithoutFollowers_followers_followed_idTousersNestedInput
+  }
+
+  export type followersUncheckedUpdateWithoutUsers_followers_user_idTousersInput = {
+    followed_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
+  export type followersUncheckedUpdateManyWithoutUsers_followers_user_idTousersInput = {
+    followed_id?: BigIntFieldUpdateOperationsInput | bigint | number
+  }
+
   export type highlightsUpdateWithoutUsersInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12382,6 +15698,27 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     is_read?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type profile_dataUpdateWithoutUsersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type profile_dataUncheckedUpdateWithoutUsersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type profile_dataUncheckedUpdateManyWithoutUsersInput = {
+    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    prestige_point?: BigIntFieldUpdateOperationsInput | bigint | number
+    pfp?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type storiesUpdateWithoutUsersInput = {

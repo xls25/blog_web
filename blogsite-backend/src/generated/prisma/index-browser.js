@@ -170,9 +170,20 @@ exports.Prisma.UsersScalarFieldEnum = {
   birth_date: 'birth_date',
   password: 'password',
   is_admin: 'is_admin',
+  email: 'email'
+};
+
+exports.Prisma.FollowersScalarFieldEnum = {
+  user_id: 'user_id',
+  followed_id: 'followed_id'
+};
+
+exports.Prisma.Profile_dataScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
   description: 'description',
   prestige_point: 'prestige_point',
-  email: 'email'
+  pfp: 'pfp'
 };
 
 exports.Prisma.SortOrder = {
@@ -198,7 +209,9 @@ exports.Prisma.ModelName = {
   highlights: 'highlights',
   messages: 'messages',
   stories: 'stories',
-  users: 'users'
+  users: 'users',
+  followers: 'followers',
+  profile_data: 'profile_data'
 };
 
 /**

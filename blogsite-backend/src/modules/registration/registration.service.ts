@@ -3,6 +3,7 @@ import { PrismaService } from '../../prisma.service';
 import { NewUserInterface } from './interfaces/new-user.interface';
 import * as bcrypt from 'bcrypt';
 
+
 @Injectable()
 export class RegistrationService {
   constructor(private prisma: PrismaService) {}
@@ -29,20 +30,23 @@ export class RegistrationService {
       throw new ConflictException('Username already exists');
     }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
-    const newUser = await this.prisma.users.create({
-      data: {
-        email,
-        username,
-        password: hashedPassword,
-        birth_date,
-      },
-    });
+    try {
+      const hashedPassword = await bcrypt.hash(password, 12);
+      const postUser = await this.prisma.users.create({
+        data: {
+          email: email,
+          username: username,
+          password: hashedPassword,
+          birth_date: birth_date,
+        },
+      });
 
-    console.log(newUser);
-    return {
-      message: 'Registration successful',
-
-    };
+      console.log(postUser);
+      return {
+        message: 'Registration successful',
+      };
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
