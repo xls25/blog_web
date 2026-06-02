@@ -1,9 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/LoginPage";
 import LoginRoute from "./routes/LoginRoute";
 import LandingRoute from "./routes/LandingRoute";
-import RegistrationPage from "./pages/RegistrationPage";
+import AuthPage from "./pages/AuthPage.tsx";
 
 export default function Router() {
   return (
@@ -16,8 +15,7 @@ export default function Router() {
 
         {/* A LoginPage és későbbi regisztráció védése */}
         <Route element={<LoginRoute />}>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/auth" element={<AuthPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

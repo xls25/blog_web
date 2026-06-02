@@ -1,0 +1,24 @@
+@import "tailwindcss";
+.p-password-input {
+    @apply pl-10 w-full!;
+}
+
+.p-password span.p-input-icon {
+    @apply flex;
+}
+
+.p-icon-field{
+    @apply w-full;
+}
+
+.p-password {
+    @apply w-full;
+}
+
+.p-calendar {
+    @apply w-full;
+}
+
+.p-inputtext {
+    @apply pl-10;
+}

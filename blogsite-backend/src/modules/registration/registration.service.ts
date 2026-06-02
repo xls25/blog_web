@@ -39,8 +39,10 @@ export class RegistrationService {
       },
     });
 
+    console.log(newUser);
     return {
       message: 'Registration successful',
+
     };
   }
 }
