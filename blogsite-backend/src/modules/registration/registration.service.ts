@@ -31,7 +31,7 @@ export class RegistrationService {
 
     try {
       const hashedPassword = await bcrypt.hash(password, 12);
-      /*const postUser = await this.prisma.users.create({
+      const postUser = await this.prisma.users.create({
         data: {
           email: email,
           username: username,
@@ -40,7 +40,7 @@ export class RegistrationService {
         },
       });
 
-      console.log(postUser);*/
+      console.log(postUser);
       return {
         message: 'Registration successful',
       };
