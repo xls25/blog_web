@@ -3,7 +3,6 @@ import { PrismaService } from '../../prisma.service';
 import { NewUserInterface } from './interfaces/new-user.interface';
 import * as bcrypt from 'bcrypt';
 
-
 @Injectable()
 export class RegistrationService {
   constructor(private prisma: PrismaService) {}
@@ -47,6 +46,9 @@ export class RegistrationService {
       };
     } catch (error) {
       console.log(error);
+      return {
+        message: 'Registration failed',
+      };
     }
   }
 }
