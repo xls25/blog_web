@@ -39,15 +39,10 @@ function AuthPage() {
         />
       </div>
 
-      {/*<div
-        className={`${!breakpoint1500px ? "w-full" : "w-[60%]"} bg-primary flex flex-col gap-3 ${heightBreakpoint655px ? "h-full" : "justify-center"} ${breakpoint1200px ? "p-10" : "p-24"} text-gray-light ${breakpoint855px ? "border-none" : "border-l border-l-gray-600"}`}
-      >
-        {breakpoint855px && <div className="absolute top-5 left-5">Icon</div>}
-      </div>*/}
-
       <div
         className={`${!breakpoint1500px ? "w-full" : "w-[60%]"} bg-primary flex flex-col gap-3 ${heightBreakpoint655px ? "h-full" : "justify-center"} ${breakpoint1200px ? "p-10" : "p-24"} text-gray-light ${breakpoint855px ? "border-none" : "border-l border-l-gray-600"}`}
       >
+        {breakpoint855px && <div className="absolute top-5 left-5">Icon</div>}
 
         <Outlet />
       </div>

@@ -7,7 +7,7 @@ import { Calendar } from "primereact/calendar";
 import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { PostNewUser } from "../types/user-reg-type.ts";
 import { postNewUser } from "../services/registration.service.ts";
 
@@ -25,19 +25,22 @@ const registrationSchema = z
 
     birth_date: z
       .date()
-      .refine((val) => {
-        if (!val) return false;
-        const today = new Date();
-        const ageLimit = 16;
+      .refine(
+        (val) => {
+          if (!val) return false;
+          const today = new Date();
+          const ageLimit = 16;
 
-        const checkDate = new Date(
-          today.getFullYear() - ageLimit,
-          today.getMonth(),
-          today.getDate(),
-        );
+          const checkDate = new Date(
+            today.getFullYear() - ageLimit,
+            today.getMonth(),
+            today.getDate(),
+          );
 
-        return val <= checkDate;
-      }, {message: "You must be at least 16 years old" })
+          return val <= checkDate;
+        },
+        { message: "You must be at least 16 years old" },
+      )
       .min(1, { message: "Birth date is required" }),
 
     password: z
@@ -57,6 +60,8 @@ const registrationSchema = z
 type RegistrationFormValues = z.infer<typeof registrationSchema>;
 
 function Registration() {
+  const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -77,23 +82,21 @@ function Registration() {
     const newUserData = convertData(data);
 
     try {
-      const response =  await postNewUser(newUserData);
-      if (!response.ok) throw new Error("Could not create new user");
-      const data = await response.json();
-      console.log(data);
-
+      const response = await postNewUser(newUserData);
+      console.log(response.message);
+      if (response.message) navigate("/auth/login");
     } catch (error) {
       console.error(error);
     }
   };
 
   const convertData = (user: RegistrationFormValues): PostNewUser => {
-      return ({
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        birth_date: user.birth_date.toISOString(),
-      })
+    return {
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      birth_date: user.birth_date.toISOString(),
+    };
   };
 
   return (

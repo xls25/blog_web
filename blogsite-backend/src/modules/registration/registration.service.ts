@@ -3,7 +3,6 @@ import { PrismaService } from '../../prisma.service';
 import { NewUserInterface } from './interfaces/new-user.interface';
 import * as bcrypt from 'bcrypt';
 
-
 @Injectable()
 export class RegistrationService {
   constructor(private prisma: PrismaService) {}
@@ -32,7 +31,7 @@ export class RegistrationService {
 
     try {
       const hashedPassword = await bcrypt.hash(password, 12);
-      const postUser = await this.prisma.users.create({
+      /*const postUser = await this.prisma.users.create({
         data: {
           email: email,
           username: username,
@@ -41,12 +40,15 @@ export class RegistrationService {
         },
       });
 
-      console.log(postUser);
+      console.log(postUser);*/
       return {
         message: 'Registration successful',
       };
     } catch (error) {
       console.log(error);
+      return {
+        message: 'Registration failed',
+      };
     }
   }
 }
